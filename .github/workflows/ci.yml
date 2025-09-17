@@ -1,0 +1,28 @@
+name: CI
+run-name: "Build and Test for ${{ github.ref_name}} by ${{ github.actor }}"
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Clone your repo into the GitHub Actions virtual machine so your workflow
+      # can actually work with your code.
+      - uses: actions/checkout@v5
+      # Install Node.js on VM
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Lint with ESLint (Find code issues including security issues)
+      - name: Lint for security/code issues
+        run: npm run lint
+
+      # 5. Run npm audit (Find security volnerabilities in dependencies)
+      - name: Audit dependencies for vulnerabilities
+        run: npm audit --audit-level=moderate
