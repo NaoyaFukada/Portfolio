@@ -10,7 +10,7 @@ export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
     plugins: { js, security },
-    extends: ["js/recommended", "plugin:security/recommended"],
+    extends: ["js/recommended", "...security.configs.recommended.rules"],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
 
