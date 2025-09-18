@@ -3,5 +3,4 @@ npm init @eslint/config@latest
 npm install --save-dev eslint eslint-plugin-json
 npm install @eslint/markdown -D
 
-npm install -D vitest
-npm install --save-dev @testing-library/jest-dom
+npm install -D vitest @testing-library/jest-dom jsdom

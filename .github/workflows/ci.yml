@@ -2,7 +2,6 @@ name: CI
 run-name: "Build and Test for ${{ github.ref_name}} by ${{ github.actor }}"
 on:
   push:
-    branches: [main]
   pull_request:
 
 jobs:
