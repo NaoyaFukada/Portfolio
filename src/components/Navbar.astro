@@ -157,10 +157,17 @@ let isMenuOpen = false;
   }
 
   .mobile-link {
-    @apply text-white text-xl tracking-wider py-3
-            transition-colors duration-200
-            active:scale-95 active:bg-white/10;
-  }
+  @apply text-white text-xl tracking-wider py-3
+        relative overflow-hidden
+        transition-all duration-300
+        after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
+        after:h-[2px] after:w-0 after:rounded-full
+        after:transition-all after:duration-300
+        active:scale-110
+        active:translate-y-1
+        active:after:w-full
+        active:shadow-lg;
+}
 
 
 </style>
