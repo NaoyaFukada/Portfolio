@@ -44,3 +44,8 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+### Log Note
+
+I refined the `focus-visible` styles to provide a more polished and accessible user experience.  
+I chose not to implement `motion-safe` because the animations on this site are subtle, and the primary intent of the portfolio is to showcase my development skills rather than emphasize accessibility for motion preferences.

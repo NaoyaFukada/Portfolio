@@ -6,77 +6,12 @@ let isMenuOpen = false;
 <nav class="flex flex-wrap justify-center bg-sky-950">
   <!-- Desktop Version -->
   <div class="hidden md:flex md:flex-wrap md:justify-center md:gap-8 md:py-8">
-    <!-- HOME -->
-    <a href="#home"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-sky-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:text-sky-300
-              hover:-translate-y-1">
-      Home
-    </a>
-
-    <!-- ABOUT ME -->
-    <a href="#about"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-rose-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:rotate-[6deg] 
-              hover:text-rose-300 hover:-translate-y-1">
-      About
-    </a>
-
-    <!-- PROJECTS -->
-    <a href="#projects"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-emerald-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:-rotate-[6deg] 
-              hover:text-emerald-300 hover:-translate-y-1">
-      Projects
-    </a>
-
-    <!-- PROFESSIONAL EXPERIENCE -->
-    <a href="#experience"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-purple-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:rotate-[6deg] 
-              hover:text-purple-300 hover:-translate-y-1">
-      Work
-    </a>
-
-    <!-- EDUCATION -->
-    <a href="#education"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-amber-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:-rotate-[6deg] 
-              hover:text-amber-300 hover:-translate-y-1">
-      Education
-    </a>
-
-    <!-- CONTACT -->
-    <a href="#contact"
-      class="relative text-white text-lg tracking-wider
-              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-              after:h-[2px] after:w-0 after:bg-indigo-400 after:rounded-full
-              after:transition-all after:duration-500 after:ease-in-out
-              hover:after:w-full
-              transition-all duration-300 hover:scale-125 hover:rotate-[6deg] 
-              hover:text-indigo-300 hover:-translate-y-1">
-      Contact
-    </a>
+    <a href="#home" class="desktop-link home">Home</a>
+    <a href="#about" class="desktop-link about">About</a>
+    <a href="#projects" class="desktop-link projects">Projects</a>
+    <a href="#experience" class="desktop-link work">Work</a>
+    <a href="#education" class="desktop-link education">Education</a>
+    <a href="#contact" class="desktop-link contact">Contact</a>
   </div>
 
   <!-- Mobile Navigation -->
@@ -106,6 +41,10 @@ let isMenuOpen = false;
                  hover:after:w-full
                  transition-all duration-300 hover:scale-125 hover:text-sky-300
                  hover:-translate-y-1">
+          Home
+        </a>
+        <a href="#home"
+          class="mobile-link home">
           Home
         </a>
         <a href="#about"
@@ -161,6 +100,70 @@ let isMenuOpen = false;
       </div>
     </div>
 </nav>
+
+<style>
+@reference "tailwindcss";
+
+  /* Base styles for all menu links */
+  .desktop-link {
+    @apply relative text-lg text-white tracking-wider
+          after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
+          after:h-[2px] after:w-0 after:rounded-full
+          after:transition-all after:duration-500 after:ease-in-out
+          hover:after:w-full
+          transition-all duration-300
+          hover:scale-125 hover:-translate-y-1
+          focus-visible:outline-none 
+          focus-visible:ring-2 focus-visible:ring-offset-2 
+          focus-visible:ring-offset-sky-950
+          focus-visible:scale-110 focus-visible:-translate-y-0.5;
+  }
+
+  /* Individual color configurations */
+  .home {
+    @apply after:bg-sky-400 hover:text-sky-300 hover:-rotate-[3deg]
+          focus-visible:ring-sky-400/60
+          focus-visible:shadow-[0_0_15px_rgba(56,189,248,0.3)];
+  }
+
+  .about {
+    @apply after:bg-rose-400 hover:text-rose-300 hover:-rotate-[-3deg]
+          focus-visible:ring-rose-400/60
+          focus-visible:shadow-[0_0_15px_rgba(244,63,94,0.3)];
+  }
+
+  .projects {
+    @apply after:bg-emerald-400 hover:text-emerald-300 hover:-rotate-[6deg]
+          focus-visible:ring-emerald-400/60
+          focus-visible:shadow-[0_0_15px_rgba(52,211,153,0.3)];
+  }
+
+  .work {
+    @apply after:bg-purple-400 hover:text-purple-300 hover:-rotate-[-6deg]
+          focus-visible:ring-purple-400/60
+          focus-visible:shadow-[0_0_15px_rgba(192,132,252,0.3)];
+  }
+
+  .education {
+    @apply after:bg-amber-400 hover:text-amber-300 hover:-rotate-[6deg]
+          focus-visible:ring-amber-400/60
+          focus-visible:shadow-[0_0_15px_rgba(251,191,36,0.3)];
+  }
+
+  .contact {
+    @apply after:bg-indigo-400 hover:text-indigo-300 hover:-rotate-[-2deg]
+          focus-visible:ring-indigo-400/60
+          focus-visible:shadow-[0_0_15px_rgba(129,140,248,0.3)];
+  }
+
+  .mobile-link {
+    @apply text-white text-xl tracking-wider py-3
+            transition-colors duration-200
+            active:scale-95 active:bg-white/10;
+  }
+
+
+</style>
 
 <script>
   const menuToggle = document.getElementById('menu-toggle');
