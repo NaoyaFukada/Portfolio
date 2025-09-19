@@ -44,7 +44,7 @@ let isMenuOpen = false;
           Home
         </a>
         <a href="#home"
-          class="mobile-link home">
+          class="mobile-link">
           Home
         </a>
         <a href="#about"
@@ -157,28 +157,34 @@ let isMenuOpen = false;
   }
 
   .mobile-link {
-    @apply text-white text-xl tracking-wider py-3
-          relative overflow-hidden
-          transition-transform duration-100
-          active:scale-95 active:bg-white/10
-          select-none;
-    /* remove touch-none; it can suppress native touch feedback */
+      @apply text-white text-xl tracking-wider py-3
+            relative select-none
+            transition-[transform,background-color] duration-75
+            active:scale-[0.97] active:bg-white/20
+            active:shadow-inner;
+
+      touch-action: manipulation;
+
+      /* Cross-browser touch event handling */
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
   }
 
-  /* Visible underline on tap */
-  .mobile-link::after {
-    content:"";
-    @apply absolute bottom-0 left-1/2 -translate-x-1/2
-          h-[2px] w-0 bg-sky-400 rounded-full
-          transition-[width] duration-150;
-  }
-  .mobile-link:active::after {
-    @apply w-full;
-  }
-
-  /* Optional: nicer tap highlight on iOS */
+  /* iOS specific handling */
   @supports (-webkit-touch-callout: none) {
-    .mobile-link { -webkit-tap-highlight-color: rgba(255,255,255,0.15); }
+      .mobile-link {
+          @apply active:duration-150;
+          -webkit-tap-highlight-color: rgba(255,255,255,0.15);
+      }
+  }
+
+  /* Android/Chrome specific */
+  @media (hover: none) and (pointer: coarse) {
+      .mobile-link:active {
+          transition-duration: 150ms;
+      }
   }
 
 
