@@ -157,20 +157,29 @@ let isMenuOpen = false;
   }
 
   .mobile-link {
-  @apply text-white text-xl tracking-wider py-3
-        relative overflow-hidden
-        transition-none
-        after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
-        after:h-[2px] after:w-0 after:rounded-full
-        after:transition-none
-        active:scale-105
-        active:-translate-y-0.5
-        active:after:w-full
-        active:shadow-lg
-        active:bg-white/5
-        touch-none
-        select-none;
-}
+    @apply text-white text-xl tracking-wider py-3
+          relative overflow-hidden
+          transition-transform duration-100
+          active:scale-95 active:bg-white/10
+          select-none;
+    /* remove touch-none; it can suppress native touch feedback */
+  }
+
+  /* Visible underline on tap */
+  .mobile-link::after {
+    content:"";
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2
+          h-[2px] w-0 bg-sky-400 rounded-full
+          transition-[width] duration-150;
+  }
+  .mobile-link:active::after {
+    @apply w-full;
+  }
+
+  /* Optional: nicer tap highlight on iOS */
+  @supports (-webkit-touch-callout: none) {
+    .mobile-link { -webkit-tap-highlight-color: rgba(255,255,255,0.15); }
+  }
 
 
 </style>
@@ -179,31 +188,48 @@ let isMenuOpen = false;
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuLinks = document.querySelectorAll('#mobile-menu a');
+  const html = document.documentElement;
   let isMenuOpen = false;
 
-  menuToggle?.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    
-    // Transform hamburger to X
+  function openMenu() {
+    isMenuOpen = true;
+    menuToggle.setAttribute('aria-expanded', 'true');
+    html.classList.add('overflow-hidden');
     const bars = menuToggle.children;
-    if (isMenuOpen) {
-      bars[0].classList.add('rotate-45', 'translate-y-1.5');
-      bars[1].classList.add('opacity-0');
-      bars[2].classList.add('-rotate-45', '-translate-y-1.5');
-      mobileMenu?.classList.remove('-translate-y-full');
-    } else {
-      bars[0].classList.remove('rotate-45', 'translate-y-1.5');
-      bars[1].classList.remove('opacity-0');
-      bars[2].classList.remove('-rotate-45', '-translate-y-1.5');
-      mobileMenu?.classList.add('-translate-y-full');
-    }
+    bars[0].classList.add('rotate-45', 'translate-y-1.5');
+    bars[1].classList.add('opacity-0');
+    bars[2].classList.add('-rotate-45', '-translate-y-1.5');
+    mobileMenu?.classList.remove('-translate-y-full');
+  }
+
+  function closeMenu() {
+    isMenuOpen = false;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    html.classList.remove('overflow-hidden');
+    const bars = menuToggle.children;
+    bars[0].classList.remove('rotate-45', 'translate-y-1.5');
+    bars[1].classList.remove('opacity-0');
+    bars[2].classList.remove('-rotate-45', '-translate-y-1.5');
+    mobileMenu?.classList.add('-translate-y-full');
+  }
+
+  menuToggle?.addEventListener('click', () => {
+    isMenuOpen ? closeMenu() : openMenu();
   });
 
-  // Close menu when clicking a link
+  // Close menu when clicking a link (with small delay for tap feedback)
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu?.classList.add('-translate-y-full');
-      isMenuOpen = false;
+      setTimeout(() => {
+        closeMenu();
+      }, 150); // 150ms gives enough time to see the active state
     });
+  });
+
+  // Optional: close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      closeMenu();
+    }
   });
 </script>
