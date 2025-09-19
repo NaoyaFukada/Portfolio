@@ -159,14 +159,17 @@ let isMenuOpen = false;
   .mobile-link {
   @apply text-white text-xl tracking-wider py-3
         relative overflow-hidden
-        transition-all duration-300
+        transition-none
         after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
         after:h-[2px] after:w-0 after:rounded-full
-        after:transition-all after:duration-300
-        active:scale-110
-        active:translate-y-1
+        after:transition-none
+        active:scale-105
+        active:-translate-y-0.5
         active:after:w-full
-        active:shadow-lg;
+        active:shadow-lg
+        active:bg-white/5
+        touch-none
+        select-none;
 }
 
 
