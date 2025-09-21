@@ -109,9 +109,9 @@ let isMenuOpen = false;
     @apply relative text-lg text-white tracking-wider
           after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2
           after:h-[2px] after:w-0 after:rounded-full
-          after:transition-all after:duration-500 after:ease-in-out
+          after:transition-all after:duration-600 after:ease-in-out
           hover:after:w-full
-          transition-all duration-300
+          transition-all duration-600
           hover:scale-125 hover:-translate-y-1
           focus-visible:outline-none 
           focus-visible:ring-2 focus-visible:ring-offset-2 
@@ -162,8 +162,6 @@ let isMenuOpen = false;
             transition-[transform,background-color] duration-75
             active:scale-[0.97] active:bg-white/20
             active:shadow-inner;
-
-      touch-action: manipulation;
 
       /* Cross-browser touch event handling */
       -webkit-tap-highlight-color: transparent;
