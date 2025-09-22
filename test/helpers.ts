@@ -5,9 +5,10 @@ import type { ContainerRenderOptions } from "astro/container";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 
 export async function renderAstroComponentToDOMComponent(
-  Component: AstroComponentFactory,
+  componentPath: string,
   options: ContainerRenderOptions = {}
 ) {
+  const Component = await import(componentPath);
   // Create an new instance of the Astro container
   const container = await experimental_AstroContainer.create();
   // Render the component to a string
