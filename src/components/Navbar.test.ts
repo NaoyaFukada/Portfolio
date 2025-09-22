@@ -2,6 +2,7 @@ import Navbar from "./Navbar.astro";
 import { expect, test } from "vitest";
 import { renderAstroComponentToDOMComponent } from "../../test/helpers";
 import userEvent from "@testing-library/user-event";
+import { waitFor } from "@testing-library/dom";
 
 test("hamburger toggles aria-expanded", async () => {
   const user = userEvent.setup();
@@ -15,7 +16,9 @@ test("hamburger toggles aria-expanded", async () => {
 
   // Simulate click to open menu
   await user.click(menuToggle);
-  expect(menuToggle?.getAttribute("aria-expanded")).toBe("true");
+  await waitFor(() =>
+    expect(menuToggle?.getAttribute("aria-expanded")).toBe("true")
+  );
 
   // Simulate click to close menu
   await user.click(menuToggle);
