@@ -16,7 +16,9 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies
-        run: npm ci
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
 
       # 4. Lint with ESLint (Find code issues including security issues)
       - name: Lint for security/code issues
