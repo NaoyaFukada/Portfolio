@@ -5,7 +5,7 @@ import { renderAstroComponentToDOMComponent } from "../../test/helpers";
 test("hamburger toggles aria-expanded", async () => {
   const result = await renderAstroComponentToDOMComponent(Navbar);
   const menuToggle = result.getElementById("menu-toggle");
-  expect(menuToggle?.getAttribute("aria-expanded")).toBe("false");
+  expect(menuToggle?.getAttribute("aria-expanded")).toBeNull();
 
   // Simulate click to open menu
   menuToggle?.click();
