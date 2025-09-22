@@ -4,6 +4,8 @@ npm install --save-dev eslint eslint-plugin-json
 npm install @eslint/markdown -D
 
 npm install -D vitest @testing-library/jest-dom jsdom
+npm install --save-dev @testing-library/user-event
+
 # Dark Blue → #0c2d48
 
 # Blue → #145da0
