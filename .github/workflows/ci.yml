@@ -28,4 +28,6 @@ jobs:
 
       # 6. Run tests with Vitest
       - name: Run tests
-        run: npm run test
+        run: |
+          npm run test
+          npm install -D happy-dom
