@@ -12,9 +12,9 @@ jobs:
       # can actually work with your code.
       - uses: actions/checkout@v5
       # Install Node.js on VM
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
       - name: Install dependencies
         run: npm ci
 
@@ -29,5 +29,3 @@ jobs:
       # 6. Run tests with Vitest
       - name: Run tests
         run: npm run test
-        env:
-          NODE_OPTIONS: "--no-experimental-global-webcrypto"
