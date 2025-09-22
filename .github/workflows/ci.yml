@@ -24,7 +24,7 @@ jobs:
 
       # 5. Run npm audit (Find security volnerabilities in dependencies)
       - name: Audit dependencies for vulnerabilities
-        run: npm audit --audit-level=moderate
+        run: npm audit --audit-level=high
 
       # 6. Run tests with Vitest
       - name: Run tests
