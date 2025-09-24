@@ -1,0 +1,641 @@
+---
+import { Image } from 'astro:assets';
+// Import your profile image from assets folder (optional)
+// import profileImg from '../assets/images/profile.jpg';
+---
+
+<section id="home" class="min-h-screen bg-gradient-to-br from-sky-950 via-slate-900 to-indigo-950 flex items-center justify-center px-6 py-20 relative overflow-hidden">
+  <!-- Dynamic Background Elements -->
+  <div class="absolute inset-0">
+    <!-- Animated Circuit Board Pattern -->
+    <div class="circuit-pattern"></div>
+    
+    <!-- Floating Code Snippets -->
+    <div class="code-particles">
+      <span class="particle" style="--delay: 0s; --x: 10%; --y: 20%;">{}</span>
+      <span class="particle" style="--delay: 2s; --x: 85%; --y: 15%;">[]</span>
+      <span class="particle" style="--delay: 4s; --x: 15%; --y: 80%;">&lt;/&gt;</span>
+      <span class="particle" style="--delay: 6s; --x: 90%; --y: 75%;">( )</span>
+      <span class="particle" style="--delay: 8s; --x: 5%; --y: 60%;">==&gt;</span>
+    </div>
+    
+    <!-- Glowing Orbs -->
+    <div class="floating-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    
+    <!-- Main Content Container with Unique Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- Left Side - Interactive Terminal Style -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Terminal Header -->
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="flex items-center gap-3">
+              <div class="terminal-controls">
+                <div class="dot dot-close"></div>
+                <div class="dot dot-minimize"></div>
+                <div class="dot dot-maximize"></div>
+              </div>
+              <div class="terminal-title">~/developer/portfolio $</div>
+            </div>
+            <div class="terminal-status">
+              <span class="status-dot online"></span>
+              <span class="text-xs">ONLINE</span>
+            </div>
+          </div>
+          
+          <!-- Terminal Content -->
+          <div class="terminal-body">
+            <div class="command-line">
+              <span class="prompt">$</span>
+              <span class="command">whoami</span>
+              <span class="cursor"></span>
+            </div>
+            
+            <div class="output-section">
+              <div class="typing-text">
+                <h1 class="developer-name">
+                  <span class="text-emerald-400">const</span> 
+                  <span class="text-white">developer</span> 
+                  <span class="text-yellow-400">=</span> 
+                  <span class="text-sky-400">"Your Name"</span>
+                </h1>
+                
+                <div class="role-display">
+                  <span class="text-purple-400">class</span> 
+                  <span class="role-highlight">FullStackDeveloper</span>
+                  <span class="text-white"> extends </span>
+                  <span class="text-rose-400">ProblemSolver</span>
+                </div>
+                
+                <div class="bio-code">
+                  <span class="text-gray-400">// Passionate about creating digital experiences</span><br>
+                  <span class="text-emerald-400">this</span><span class="text-white">.passion = [</span><br>
+                  <span class="ml-4 text-orange-300">'Clean Code'</span><span class="text-white">,</span><br>
+                  <span class="ml-4 text-orange-300">'User Experience'</span><span class="text-white">,</span><br>
+                  <span class="ml-4 text-orange-300">'Innovation'</span><br>
+                  <span class="text-white">];</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Interactive Command Prompt -->
+            <div class="interactive-prompt">
+              <span class="prompt">$</span>
+              <span class="fake-typing">ls skills/</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Command Line -->
+        <div class="social-terminal">
+          <div class="flex items-center gap-4 text-sm font-mono">
+            <span class="text-slate-400">$</span>
+            <span class="text-white">connect --social</span>
+          </div>
+          <div class="social-grid mt-4">
+            <a href="https://github.com/yourusername" class="social-link-terminal github" target="_blank">
+              <span class="social-command">./github</span>
+              <svg class="social-icon-small" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+            
+            <a href="https://linkedin.com/in/yourusername" class="social-link-terminal linkedin" target="_blank">
+              <span class="social-command">./linkedin</span>
+              <svg class="social-icon-small" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            
+            <a href="mailto:your.email@example.com" class="social-link-terminal email">
+              <span class="social-command">./email</span>
+              <svg class="social-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="execute-button primary" onclick="window.location.href='#contact'">
+            <span class="button-text">EXECUTE contact.sh</span>
+            <div class="button-effect"></div>
+          </button>
+          
+          <button class="execute-button secondary" onclick="window.open('/resume.pdf', '_blank')">
+            <span class="button-text">DOWNLOAD resume.pdf</span>
+            <div class="button-effect"></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Side - Skills Visualization -->
+      <div class="lg:col-span-5">
+        <div class="skills-container">
+          <div class="skills-header">
+            <h3 class="skills-title">
+              <span class="text-slate-400">// Skills Matrix</span>
+            </h3>
+          </div>
+          
+          <div class="skills-grid">
+            <!-- Frontend Skills -->
+            <div class="skill-category frontend">
+              <h4 class="category-title">Frontend</h4>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <span class="skill-name">React</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 90%; --color: #61DAFB;"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">TypeScript</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 85%; --color: #3178C6;"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Next.js</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 80%; --color: #000000;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Skills -->
+            <div class="skill-category backend">
+              <h4 class="category-title">Backend</h4>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <span class="skill-name">Node.js</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 88%; --color: #339933;"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Python</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 92%; --color: #3776AB;"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">PostgreSQL</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 75%; --color: #336791;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools Skills -->
+            <div class="skill-category tools">
+              <h4 class="category-title">Tools</h4>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <span class="skill-name">Docker</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 70%; --color: #2496ED;"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">AWS</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="--progress: 65%; --color: #FF9900;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-hint">
+    <div class="scroll-text">Explore More</div>
+    <div class="scroll-arrow-container">
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+@reference "tailwindcss";
+
+/* Enhanced Background Elements */
+.circuit-pattern {
+  @apply absolute inset-0 opacity-10;
+  background-image: 
+    radial-gradient(circle at 25% 25%, #10b981 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, #3b82f6 1px, transparent 1px),
+    linear-gradient(45deg, transparent 40%, rgba(16, 185, 129, 0.1) 50%, transparent 60%);
+  background-size: 40px 40px, 60px 60px, 80px 80px;
+  animation: circuitFlow 15s linear infinite;
+}
+
+@keyframes circuitFlow {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(40px, 40px) rotate(360deg); }
+}
+
+.code-particles {
+  @apply absolute inset-0 pointer-events-none;
+}
+
+.particle {
+  @apply absolute text-2xl font-mono text-sky-400/30;
+  animation: particleFloat 8s ease-in-out infinite;
+  animation-delay: var(--delay);
+  left: var(--x);
+  top: var(--y);
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: translateY(-60px) rotate(180deg); 
+    opacity: 0.8; 
+  }
+}
+
+.floating-orbs {
+  @apply absolute inset-0 pointer-events-none;
+}
+
+.orb {
+  @apply absolute rounded-full blur-sm;
+  animation: orbFloat 12s ease-in-out infinite;
+}
+
+.orb-1 {
+  @apply w-32 h-32 bg-emerald-500/10;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  @apply w-48 h-48 bg-purple-500/10;
+  top: 60%;
+  right: 10%;
+  animation-delay: -4s;
+}
+
+.orb-3 {
+  @apply w-24 h-24 bg-rose-500/10;
+  bottom: 20%;
+  left: 70%;
+  animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Terminal Container */
+.terminal-container {
+  @apply bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-slate-700/50 
+         shadow-2xl overflow-hidden;
+  animation: terminalBoot 1.5s ease-out;
+}
+
+@keyframes terminalBoot {
+  0% { opacity: 0; transform: scale(0.95) rotateX(10deg); }
+  100% { opacity: 1; transform: scale(1) rotateX(0deg); }
+}
+
+.terminal-header {
+  @apply flex items-center justify-between px-6 py-4 bg-slate-800/80 border-b border-slate-700/50;
+}
+
+.terminal-controls {
+  @apply flex gap-2;
+}
+
+.dot {
+  @apply w-3 h-3 rounded-full;
+}
+
+.dot-close { @apply bg-red-500 hover:bg-red-400 cursor-pointer transition-colors; }
+.dot-minimize { @apply bg-yellow-500 hover:bg-yellow-400 cursor-pointer transition-colors; }
+.dot-maximize { @apply bg-green-500 hover:bg-green-400 cursor-pointer transition-colors; }
+
+.terminal-title {
+  @apply text-slate-300 text-sm font-mono;
+}
+
+.terminal-status {
+  @apply flex items-center gap-2 text-slate-400;
+}
+
+.status-dot {
+  @apply w-2 h-2 rounded-full;
+}
+
+.status-dot.online {
+  @apply bg-green-400;
+  animation: pulse 2s infinite;
+}
+
+.terminal-body {
+  @apply p-6 space-y-4;
+}
+
+.command-line {
+  @apply flex items-center gap-2 font-mono text-lg;
+}
+
+.prompt {
+  @apply text-emerald-400 font-bold;
+}
+
+.command {
+  @apply text-white;
+  animation: typing 2s steps(6) 1s both;
+}
+
+.cursor {
+  @apply w-3 h-6 bg-emerald-400 inline-block;
+  animation: blink 1s infinite, appear 2s 1s both;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.output-section {
+  @apply space-y-3;
+}
+
+.typing-text {
+  @apply font-mono space-y-2;
+  animation: fadeInUp 1s ease-out 3s both;
+}
+
+.developer-name {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+.role-display {
+  @apply text-xl md:text-2xl;
+}
+
+.role-highlight {
+  @apply bg-gradient-to-r from-emerald-400 to-sky-400 bg-clip-text text-transparent;
+}
+
+.bio-code {
+  @apply text-sm leading-relaxed;
+}
+
+.interactive-prompt {
+  @apply flex items-center gap-2 font-mono text-sm pt-4 border-t border-slate-700/50;
+}
+
+.fake-typing {
+  @apply text-slate-300;
+  animation: fakeType 3s steps(10) 4s infinite;
+}
+
+@keyframes fakeType {
+  0%, 90% { opacity: 0; }
+  10%, 80% { opacity: 1; }
+}
+
+/* Social Terminal */
+.social-terminal {
+  @apply bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 border border-slate-700/30;
+  animation: slideInLeft 1s ease-out 1s both;
+}
+
+.social-grid {
+  @apply flex gap-4;
+}
+
+.social-link-terminal {
+  @apply flex flex-col items-center gap-2 p-3 rounded-lg border border-slate-600/30
+         transition-all duration-300 hover:bg-slate-700/50 hover:scale-105
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+         focus-visible:ring-offset-slate-900;
+}
+
+.social-link-terminal.github {
+  @apply text-emerald-400 hover:border-emerald-400/50 focus-visible:ring-emerald-400/60;
+}
+
+.social-link-terminal.linkedin {
+  @apply text-blue-400 hover:border-blue-400/50 focus-visible:ring-blue-400/60;
+}
+
+.social-link-terminal.email {
+  @apply text-rose-400 hover:border-rose-400/50 focus-visible:ring-rose-400/60;
+}
+
+.social-command {
+  @apply text-xs font-mono;
+}
+
+.social-icon-small {
+  @apply w-6 h-6;
+}
+
+/* Action Buttons */
+.action-buttons {
+  @apply flex flex-wrap gap-4;
+  animation: slideInUp 1s ease-out 1.5s both;
+}
+
+.execute-button {
+  @apply relative px-8 py-4 font-mono font-semibold text-lg rounded-full
+         border-2 transition-all duration-300 hover:scale-105
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+         focus-visible:ring-offset-slate-900 overflow-hidden cursor-pointer;
+}
+
+.execute-button.primary {
+  @apply bg-gradient-to-r from-emerald-600 to-teal-600 border-emerald-400/50
+         text-white hover:from-emerald-500 hover:to-teal-500 hover:border-emerald-400
+         focus-visible:ring-emerald-400/60;
+}
+
+.execute-button.secondary {
+  @apply bg-gradient-to-r from-purple-600 to-violet-600 border-purple-400/50
+         text-white hover:from-purple-500 hover:to-violet-500 hover:border-purple-400
+         focus-visible:ring-purple-400/60;
+}
+
+.button-effect {
+  @apply absolute inset-0 bg-white/0 transition-all duration-300;
+}
+
+.execute-button:hover .button-effect {
+  @apply bg-white/10;
+}
+
+/* Skills Container */
+.skills-container {
+  @apply bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50;
+  animation: slideInRight 1s ease-out 0.5s both;
+}
+
+.skills-title {
+  @apply text-xl font-mono mb-6;
+}
+
+.skills-grid {
+  @apply space-y-6;
+}
+
+.skill-category {
+  @apply space-y-3;
+}
+
+.category-title {
+  @apply text-sm font-mono text-slate-400 uppercase tracking-wider;
+}
+
+.skill-bars {
+  @apply space-y-2;
+}
+
+.skill-item {
+  @apply space-y-1;
+}
+
+.skill-name {
+  @apply text-sm font-mono text-slate-300;
+}
+
+.skill-bar {
+  @apply h-2 bg-slate-800 rounded-full overflow-hidden;
+}
+
+.skill-progress {
+  @apply h-full rounded-full transition-all duration-1000 ease-out;
+  background-color: var(--color);
+  width: var(--progress);
+  animation: fillBar 2s ease-out 2s both;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: var(--progress); }
+}
+
+/* Scroll Hint */
+.scroll-hint {
+  @apply absolute bottom-8 left-1/2 -translate-x-1/2 text-center;
+  animation: fadeInUp 1s ease-out 2s both;
+}
+
+.scroll-text {
+  @apply text-sm text-slate-400 font-mono mb-2;
+}
+
+.scroll-arrow-container {
+  @apply flex justify-center;
+}
+
+.scroll-arrow {
+  @apply w-6 h-6 border-r-2 border-b-2 border-emerald-400/60 rotate-45;
+  animation: bounceArrow 2s ease-in-out infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% { transform: rotate(45deg) translateY(0); }
+  40% { transform: rotate(45deg) translateY(-10px); }
+  60% { transform: rotate(45deg) translateY(-5px); }
+}
+
+/* Utility Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-container {
+    @apply mt-8;
+  }
+}
+
+@media (max-width: 768px) {
+  .developer-name {
+    @apply text-xl;
+  }
+  
+  .role-display {
+    @apply text-lg;
+  }
+  
+  .terminal-body {
+    @apply p-4;
+  }
+  
+  .skills-container {
+    @apply p-4;
+  }
+  
+  .action-buttons {
+    @apply flex-col;
+  }
+  
+  .execute-button {
+    @apply w-full text-base px-6 py-3;
+  }
+  
+  .social-grid {
+    @apply justify-center;
+  }
+  
+  .particle {
+    @apply text-lg;
+  }
+}
+</style>
