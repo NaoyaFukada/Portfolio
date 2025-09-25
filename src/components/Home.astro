@@ -1,0 +1,204 @@
+<section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-cente py-20 px-6">
+
+  <div class="hero-content p-3">
+    <div class="hero-title">
+      <h1 class="text-white">Hello</h1>
+      <span class="text-white">I am</span>
+      <span class="name-highlight">Naoya Fukada</span>
+      <br>
+      <span class="role-highlight">Software Engineer</span><span class="text-black">.</span>
+    </div>
+    <div class="hero-text py-3">
+      Passionate about creating clean, efficient code and innovative solutions. 
+      Always learning and exploring new technologies to build better digital experiences.
+    </div>
+    <div class="social-links py-3">
+      <a href="https://github.com/naoyafukada" class="social-icon github" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/naoyafukada" class="social-icon linkedin" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="#" class="social-icon CV" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="terminal border border-solid border-white">
+    <div class="terminal-window">
+      <!-- Window Controls -->
+      <div class="terminal-header">
+        <div class="terminal-controls">
+          <button class="control-dot red" title="Close"></button>
+          <button class="control-dot yellow" title="Minimize"></button>
+          <button class="control-dot green" title="Maximize"></button>
+        </div>
+        <!-- Terminal Info -->
+        <div class="terminal-file-info">
+          <i class="fa-solid fa-file"></i>
+          <span class="filename">developer.json</span>
+        </div>
+        
+        <!-- Terminal Actions -->
+        <div class="terminal-actions">
+        </div>
+      </div>
+
+      <div class="terminal-content">
+        <!-- Command Line -->
+        <div class="command-line">
+        </div>
+        <div class="json-output">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @reference "tailwindcss";
+
+  /* Hero Section */
+  .hero-title {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .name-highlight {
+    @apply bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .role-highlight {
+    @apply bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .hero-text {
+    @apply text-lg md:text-xl text-slate-300 leading-relaxed;
+  }
+
+  .social-links {
+    @apply flex gap-4 justify-center lg:justify-start;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 p-1.5 rounded-full border-2 transition-all duration-300
+          hover:scale-110 hover:shadow-lg
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+          focus-visible:ring-offset-sky-950;
+  }
+
+  .social-icon i {
+    @apply w-full h-full;
+  }
+
+  .social-icon.github {
+    @apply border-emerald-400/30 text-emerald-400 
+          hover:bg-emerald-400/20 hover:border-emerald-400 hover:shadow-emerald-400/25
+          focus-visible:ring-emerald-400/60;
+  }
+
+  .social-icon.linkedin {
+    @apply border-blue-400/30 text-blue-400 
+          hover:bg-blue-400/20 hover:border-blue-400 hover:shadow-blue-400/25
+          focus-visible:ring-blue-400/60;
+  }
+
+  .social-icon.CV {
+    @apply border-purple-400/30 text-purple-400 
+          hover:bg-purple-400/20 hover:border-purple-400 hover:shadow-purple-400/25
+          focus-visible:ring-purple-400/60;
+  }
+
+  /* Terminal Section */
+  .terminal-window {
+    @apply bg-slate-900/95 backdrop-blur-sm rounded-2xl border border-slate-700/50 
+          shadow-2xl overflow-hidden;
+  }
+
+  .terminal-header {
+    @apply flex items-center justify-between px-4 py-3;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 1px solid #334155;
+  }
+
+  .terminal-controls {
+    @apply flex items-center gap-2;
+  }
+
+  .control-dot {
+    @apply w-3 h-3 rounded-full border-none cursor-pointer transition-all duration-200;
+  }
+
+  .control-dot:hover {
+    @apply transform scale-110 brightness-110;
+  }
+
+  .control-dot.red { @apply bg-red-500; }
+  .control-dot.yellow { @apply bg-yellow-500; }
+  .control-dot.green { @apply bg-green-500; }
+
+  .terminal-file-info {
+    @apply flex items-center gap-2 text-sm;
+    flex: 1 1 auto; /* Allow to grow and shrink */
+    justify-content: center; /* Center the content */
+  }
+
+  .terminal-file-info i{
+    @apply w-3 h-3 text-slate-400;
+  }
+
+  .filename {
+    @apply text-slate-300 font-medium;
+  }
+
+  .terminal-spacer {
+    flex: 0 0 auto; /* Same width as controls to balance layout */
+    width: 80px; /* Approximate width of the three dots + gaps */
+  }
+
+  /* Terminal Content */
+  .terminal-content {
+    @apply p-6 text-sm leading-relaxed relative z-10;
+    background: radial-gradient(ellipse at top, #0f172a 0%, #020617 100%);
+    min-height: 400px;
+  }
+
+  /* Command Line */
+  .command-line {
+    @apply flex items-center gap-2 mb-4;
+  }
+
+  .prompt {
+    @apply flex items-center gap-2;
+  }
+
+  .prompt-arrow {
+    @apply text-emerald-400 font-bold;
+  }
+
+  .prompt-path {
+    @apply text-sky-400 font-medium;
+  }
+
+  .command {
+    @apply text-white;
+  }
+
+  .typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #10b981;
+    animation: typing 2.5s steps(20) 1s both, blink-cursor 1s step-end infinite 3.5s;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: #10b981; }
+  }
+</style>
