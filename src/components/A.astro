@@ -1,3 +1,7 @@
+---
+// Import Typed.js at the top of your Astro component
+---
+
 <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center py-20 px-6">
 
   <div class="hero-content p-3">
@@ -27,13 +31,13 @@
 
   <div class="terminal-section">
     <div class="terminal-window">
-        <!-- Fixed Terminal Title Bar -->
-        <div class="terminal-header">
+      <!-- Terminal Title Bar -->
+      <div class="terminal-header">
         <!-- Window Controls (Left) -->
         <div class="terminal-controls">
-            <button class="control-dot red" title="Close"></button>
-            <button class="control-dot yellow" title="Minimize"></button>
-            <button class="control-dot green" title="Maximize"></button>
+          <button class="control-dot red" title="Close"></button>
+          <button class="control-dot yellow" title="Minimize"></button>
+          <button class="control-dot green" title="Maximize"></button>
         </div>
         
         <!-- File Info (Perfectly Centered) -->
@@ -44,115 +48,167 @@
         
         <!-- Empty Spacer (Right) -->
         <div class="terminal-spacer"></div>
-        </div>
-        
-        <!-- Terminal Content -->
-        <div class="terminal-content">
+      </div>
+      
+      <!-- Terminal Content -->
+      <div class="terminal-content">
         <!-- Command Line -->
         <div class="command-line">
-            <span class="prompt">
+          <span class="prompt">
             <span class="prompt-arrow">➜</span>
             <span class="prompt-path">~</span>
-            </span>
-            <span class="command-container">
-              <span class="command typing-animation">cat developer.json</span>
-              <span class="cursor-blink typing-cursor">█</span>
-            </span>
+          </span>
+          <span id="typed-command" class="command-text"></span>
         </div>
         
-        <!-- JSON Output -->
-        <div class="json-output">
-            <div class="json-line">
+        <!-- JSON Output (Initially Hidden) -->
+        <div id="json-output" class="json-output" style="display: none;">
+          <div class="json-line">
             <span class="json-bracket">{</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"name"</span><span class="json-colon">:</span> 
             <span class="json-string">"Naoya Fukada"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"role"</span><span class="json-colon">:</span> 
             <span class="json-string">"Software Engineer"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"experience"</span><span class="json-colon">:</span> 
             <span class="json-string">"Junior"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"skills"</span><span class="json-colon">:</span> 
             <span class="json-bracket">[</span>
-            </div>
-            
-            <div class="json-line indent-2">
+          </div>
+          
+          <div class="json-line indent-2">
             <span class="json-string">"JavaScript"</span><span class="json-comma">,</span>
             <span class="json-string">"Python"</span><span class="json-comma">,</span>
             <span class="json-string">"React"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-2">
+          </div>
+          
+          <div class="json-line indent-2">
             <span class="json-string">"Node.js"</span><span class="json-comma">,</span>
             <span class="json-string">"HTML/CSS"</span><span class="json-comma">,</span>
             <span class="json-string">"Git"</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-bracket">]</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"passion"</span><span class="json-colon">:</span> 
             <span class="json-string">"Building efficient solutions"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"currentFocus"</span><span class="json-colon">:</span> 
             <span class="json-string">"Growing as a developer"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"available"</span><span class="json-colon">:</span> 
             <span class="json-boolean">true</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-key">"contact"</span><span class="json-colon">:</span> 
             <span class="json-bracket">{</span>
-            </div>
-            
-            <div class="json-line indent-2">
+          </div>
+          
+          <div class="json-line indent-2">
             <span class="json-key">"github"</span><span class="json-colon">:</span> 
             <span class="json-string">"naoyafukada"</span><span class="json-comma">,</span>
-            </div>
-            
-            <div class="json-line indent-2">
+          </div>
+          
+          <div class="json-line indent-2">
             <span class="json-key">"linkedin"</span><span class="json-colon">:</span> 
             <span class="json-string">"naoyafukada"</span>
-            </div>
-            
-            <div class="json-line indent-1">
+          </div>
+          
+          <div class="json-line indent-1">
             <span class="json-bracket">}</span>
-            </div>
-            
-            <div class="json-line">
+          </div>
+          
+          <div class="json-line">
             <span class="json-bracket">}</span>
-            </div>
+          </div>
         </div>
         
-        <!-- New Command Prompt -->
-        <div class="new-prompt">
-            <span class="prompt">
+        <!-- Final Command Prompt (Initially Hidden) -->
+        <div id="final-prompt" class="new-prompt" style="display: none;">
+          <span class="prompt">
             <span class="prompt-arrow">➜</span>
             <span class="prompt-path">~</span>
-            </span>
-            <span class="cursor-blink">█</span>
+          </span>
+          <span class="cursor-static" style="color: #22d3ee; font-weight: bold;">▊</span>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+import Typed from 'typed.js';
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Typed.js for the command
+  const typed = new Typed('#typed-command', {
+    strings: ['cat developer.json'],
+    typeSpeed: 80,
+    showCursor: true,
+    cursorChar: '▊', // Same cursor character as bottom
+    startDelay: 1000,
+    onComplete: function(self) {
+      // Brief pause, then hide cursor and show output
+      setTimeout(() => {
+        self.cursor.style.display = 'none';
+        showJSONOutput();
+      }, 500);
+    },
+    onStart: function(self) {
+      // Force cursor color when typing starts
+      setTimeout(() => {
+        const cursor = document.querySelector('.typed-cursor');
+        if (cursor) {
+          cursor.style.color = '#22d3ee';
+          cursor.style.fontWeight = 'bold';
+        }
+      }, 100);
+    }
+  });
+
+  function showJSONOutput() {
+    const jsonOutput = document.getElementById('json-output');
+    const finalPrompt = document.getElementById('final-prompt');
+    
+    // Show JSON output with staggered animation
+    jsonOutput.style.display = 'block';
+    
+    const jsonLines = jsonOutput.querySelectorAll('.json-line');
+    jsonLines.forEach((line, index) => {
+      setTimeout(() => {
+        line.style.opacity = '1';
+        line.style.transform = 'translateX(0)';
+      }, index * 200);
+    });
+    
+    // Show final prompt after all JSON lines
+    setTimeout(() => {
+      finalPrompt.style.display = 'flex';
+      finalPrompt.style.opacity = '1';
+      finalPrompt.style.transform = 'translateY(0)';
+    }, jsonLines.length * 200 + 500);
+  }
+});
+</script>
 
 <style>
   @reference "tailwindcss";
@@ -290,7 +346,8 @@
   .terminal-content {
     @apply p-6 text-sm leading-relaxed relative z-10;
     background: radial-gradient(ellipse at top, #0f172a 0%, #020617 100%);
-    min-height: 400px;
+    min-height: 450px; /* Fixed height to prevent resizing */
+    height: 450px; /* Enforce consistent height */
   }
 
   /* Command Line */
@@ -310,102 +367,27 @@
     @apply text-sky-400 font-medium;
   }
 
-  .command-container {
-    @apply flex items-center;
-    position: relative;
-  }
-
-  .command {
+  .command-text {
     @apply text-white;
   }
 
-  .typing-animation {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 0;
-    animation: typing 2.5s steps(18) 1s both;
-  }
-
-  .typing-cursor {
-    @apply text-emerald-400 font-bold;
-    margin-left: -1px;
-    animation: cursor-typing-sequence 4s linear 1s forwards;
-  }
-
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-
-  @keyframes cursor-typing-sequence {
-    /* Phase 1: Move and blink during typing (0% - 62.5%) */
-    0% { 
-      transform: translateX(0); 
-      opacity: 1; 
-    }
-    3%, 6%, 9%, 12%, 15%, 18%, 21%, 24%, 27%, 30%, 33%, 36%, 39%, 42%, 45%, 48%, 51%, 54%, 57%, 60% {
-      opacity: 0;
-    }
-    62.5% { 
-      transform: translateX(142px); 
-      opacity: 1; 
-    }
-    
-    /* Phase 2: Brief pause at end (62.5% - 75%) */
-    75% {
-      transform: translateX(142px);
-      opacity: 1;
-    }
-    
-    /* Phase 3: Disappear completely (75% - 100%) */
-    76% { 
-      transform: translateX(142px); 
-      opacity: 0; 
-    }
-    100% { 
-      transform: translateX(142px); 
-      opacity: 0; 
-    }
+  /* Typed.js cursor styling */
+  .typed-cursor {
+    color: #22d3ee !important; /* Bright cyan, much more visible */
+    font-weight: bold;
   }
 
   /* JSON Output */
   .json-output {
     @apply space-y-1 ml-4;
-    animation: fadeInUp 0.8s ease-out 4s both;
+    /* Fix height to prevent window resizing */
+    min-height: 320px;
   }
 
   .json-line {
-    @apply transition-opacity duration-300;
-    animation: fadeInLine 0.5s ease-out forwards;
+    @apply transition-all duration-500;
     opacity: 0;
-  }
-
-  .json-line:nth-child(1) { animation-delay: 4.2s; }
-  .json-line:nth-child(2) { animation-delay: 4.4s; }
-  .json-line:nth-child(3) { animation-delay: 4.6s; }
-  .json-line:nth-child(4) { animation-delay: 4.8s; }
-  .json-line:nth-child(5) { animation-delay: 5.0s; }
-  .json-line:nth-child(6) { animation-delay: 5.2s; }
-  .json-line:nth-child(7) { animation-delay: 5.4s; }
-  .json-line:nth-child(8) { animation-delay: 5.6s; }
-  .json-line:nth-child(9) { animation-delay: 5.8s; }
-  .json-line:nth-child(10) { animation-delay: 6.0s; }
-  .json-line:nth-child(11) { animation-delay: 6.2s; }
-  .json-line:nth-child(12) { animation-delay: 6.4s; }
-  .json-line:nth-child(13) { animation-delay: 6.6s; }
-  .json-line:nth-child(14) { animation-delay: 6.8s; }
-  .json-line:nth-child(15) { animation-delay: 7.0s; }
-  .json-line:nth-child(16) { animation-delay: 7.2s; }
-
-  @keyframes fadeInLine {
-    from { 
-      opacity: 0; 
-      transform: translateX(-10px); 
-    }
-    to { 
-      opacity: 1; 
-      transform: translateX(0); 
-    }
+    transform: translateX(-10px);
   }
 
   /* Indentation */
@@ -421,31 +403,16 @@
   .json-colon { @apply text-slate-400; }
   .json-comma { @apply text-slate-500; }
 
-  /* New Prompt */
+  /* Final Prompt */
   .new-prompt {
-    @apply flex items-center gap-2 mt-6;
-    animation: fadeInUp 0.5s ease-out 7.5s both;
+    @apply flex items-center gap-2 mt-6 transition-all duration-500;
+    opacity: 0;
+    transform: translateY(20px);
   }
 
-  .cursor-blink {
-    @apply text-emerald-400;
-    /* Remove blinking animation to match real macOS Terminal */
-  }
-
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-
-  @keyframes fadeInUp {
-    from { 
-      opacity: 0; 
-      transform: translateY(20px); 
-    }
-    to { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
+  .cursor-static {
+    @apply text-cyan-400 font-bold; /* Same bright cyan color */
+    /* Static cursor, same style as typing cursor */
   }
 
   /* Hover Effects */
