@@ -58,7 +58,7 @@
             <span class="prompt-arrow">➜</span>
             <span class="prompt-path">~</span>
           </span>
-          <span id="typed-command" class="command-text"></span>
+          <span id="type-command" class="command-text"></span>
         </div>
         
         <!-- JSON Output (Initially Hidden) -->
@@ -160,7 +160,7 @@ import Typed from 'typed.js';
 
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize Typed.js for the command
-  const typed = new Typed('#typed-command', {
+  const typed = new Typed('#type-command', {
     strings: ['cat developer.json'],
     typeSpeed: 80,
     showCursor: true,
