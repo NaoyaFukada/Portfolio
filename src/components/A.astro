@@ -1,0 +1,459 @@
+---
+// Import Typed.js at the top of your Astro component
+---
+
+<section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center py-20 px-6">
+
+  <div class="hero-content p-3">
+    <div class="hero-title">
+      <h1 class="text-white">Hello</h1>
+      <span class="text-white">I am</span>
+      <span class="name-highlight">Naoya Fukada</span>
+      <br>
+      <span class="role-highlight">Software Engineer</span><span class="text-black">.</span>
+    </div>
+    <div class="hero-text py-3">
+      Passionate about creating clean, efficient code and innovative solutions. 
+      Always learning and exploring new technologies to build better digital experiences.
+    </div>
+    <div class="social-links py-3">
+      <a href="https://github.com/naoyafukada" class="social-icon github" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/naoyafukada" class="social-icon linkedin" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="#" class="social-icon CV" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="terminal-section">
+    <div class="terminal-window">
+      <!-- Terminal Title Bar -->
+      <div class="terminal-header">
+        <!-- Window Controls (Left) -->
+        <div class="terminal-controls">
+          <button class="control-dot red" title="Close"></button>
+          <button class="control-dot yellow" title="Minimize"></button>
+          <button class="control-dot green" title="Maximize"></button>
+        </div>
+        
+        <!-- File Info (Perfectly Centered) -->
+        <div class="terminal-file-info">
+          <i class="fa-solid fa-file file-icon"></i>
+          <span class="filename">developer.json</span>
+        </div>
+        
+        <!-- Empty Spacer (Right) -->
+        <div class="terminal-spacer"></div>
+      </div>
+      
+      <!-- Terminal Content -->
+      <div class="terminal-content">
+        <!-- Command Line -->
+        <div class="command-line">
+          <span class="prompt">
+            <span class="prompt-arrow">➜</span>
+            <span class="prompt-path">~</span>
+          </span>
+          <span id="type-command" class="command-text"></span>
+        </div>
+        
+        <!-- JSON Output (Initially Hidden) -->
+        <div id="json-output" class="json-output" style="display: none;">
+          <div class="json-line">
+            <span class="json-bracket">{</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"name"</span><span class="json-colon">:</span> 
+            <span class="json-string">"Naoya Fukada"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"role"</span><span class="json-colon">:</span> 
+            <span class="json-string">"Software Engineer"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"experience"</span><span class="json-colon">:</span> 
+            <span class="json-string">"Junior"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"skills"</span><span class="json-colon">:</span> 
+            <span class="json-bracket">[</span>
+          </div>
+          
+          <div class="json-line indent-2">
+            <span class="json-string">"JavaScript"</span><span class="json-comma">,</span>
+            <span class="json-string">"Python"</span><span class="json-comma">,</span>
+            <span class="json-string">"React"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-2">
+            <span class="json-string">"Node.js"</span><span class="json-comma">,</span>
+            <span class="json-string">"HTML/CSS"</span><span class="json-comma">,</span>
+            <span class="json-string">"Git"</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-bracket">]</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"passion"</span><span class="json-colon">:</span> 
+            <span class="json-string">"Building efficient solutions"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"currentFocus"</span><span class="json-colon">:</span> 
+            <span class="json-string">"Growing as a developer"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"available"</span><span class="json-colon">:</span> 
+            <span class="json-boolean">true</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-key">"contact"</span><span class="json-colon">:</span> 
+            <span class="json-bracket">{</span>
+          </div>
+          
+          <div class="json-line indent-2">
+            <span class="json-key">"github"</span><span class="json-colon">:</span> 
+            <span class="json-string">"naoyafukada"</span><span class="json-comma">,</span>
+          </div>
+          
+          <div class="json-line indent-2">
+            <span class="json-key">"linkedin"</span><span class="json-colon">:</span> 
+            <span class="json-string">"naoyafukada"</span>
+          </div>
+          
+          <div class="json-line indent-1">
+            <span class="json-bracket">}</span>
+          </div>
+          
+          <div class="json-line">
+            <span class="json-bracket">}</span>
+          </div>
+        </div>
+        
+        <!-- Final Command Prompt (Initially Hidden) -->
+        <div id="final-prompt" class="new-prompt" style="display: none;">
+          <span class="prompt">
+            <span class="prompt-arrow">➜</span>
+            <span class="prompt-path">~</span>
+          </span>
+          <span class="cursor-static" style="color: #22d3ee; font-weight: bold;">▊</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+import Typed from 'typed.js';
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Typed.js for the command
+  const typed = new Typed('#type-command', {
+    strings: ['cat developer.json'],
+    typeSpeed: 80,
+    showCursor: true,
+    cursorChar: '▊', // Same cursor character as bottom
+    startDelay: 1000,
+    onComplete: function(self) {
+      // Brief pause, then hide cursor and show output
+      setTimeout(() => {
+        self.cursor.style.display = 'none';
+        showJSONOutput();
+      }, 500);
+    },
+    onStart: function(self) {
+      // Force cursor color when typing starts
+      setTimeout(() => {
+        const cursor = document.querySelector('.typed-cursor');
+        if (cursor) {
+          cursor.style.color = '#22d3ee';
+          cursor.style.fontWeight = 'bold';
+        }
+      }, 100);
+    }
+  });
+
+  function showJSONOutput() {
+    const jsonOutput = document.getElementById('json-output');
+    const finalPrompt = document.getElementById('final-prompt');
+    
+    // Show JSON output with staggered animation
+    jsonOutput.style.display = 'block';
+    
+    const jsonLines = jsonOutput.querySelectorAll('.json-line');
+    jsonLines.forEach((line, index) => {
+      setTimeout(() => {
+        line.style.opacity = '1';
+        line.style.transform = 'translateX(0)';
+      }, index * 200);
+    });
+    
+    // Show final prompt after all JSON lines
+    setTimeout(() => {
+      finalPrompt.style.display = 'flex';
+      finalPrompt.style.opacity = '1';
+      finalPrompt.style.transform = 'translateY(0)';
+    }, jsonLines.length * 200 + 500);
+  }
+});
+</script>
+
+<style>
+  @reference "tailwindcss";
+
+  /* Hero Section */
+  .hero-title {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .name-highlight {
+    @apply bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .role-highlight {
+    @apply bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .hero-text {
+    @apply text-lg md:text-xl text-slate-300 leading-relaxed;
+  }
+
+  .social-links {
+    @apply flex gap-4 justify-center lg:justify-start;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 p-1.5 rounded-full border-2 transition-all duration-300
+          hover:scale-110 hover:shadow-lg
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+          focus-visible:ring-offset-sky-950;
+  }
+
+  .social-icon i {
+    @apply w-full h-full;
+  }
+
+  .social-icon.github {
+    @apply border-emerald-400/30 text-emerald-400 
+          hover:bg-emerald-400/20 hover:border-emerald-400 hover:shadow-emerald-400/25
+          focus-visible:ring-emerald-400/60;
+  }
+
+  .social-icon.linkedin {
+    @apply border-blue-400/30 text-blue-400 
+          hover:bg-blue-400/20 hover:border-blue-400 hover:shadow-blue-400/25
+          focus-visible:ring-blue-400/60;
+  }
+
+  .social-icon.CV {
+    @apply border-purple-400/30 text-purple-400 
+          hover:bg-purple-400/20 hover:border-purple-400 hover:shadow-purple-400/25
+          focus-visible:ring-purple-400/60;
+  }
+
+  /* Terminal Section */
+  .terminal-window {
+    @apply rounded-xl overflow-hidden shadow-2xl;
+    background: linear-gradient(145deg, #0f172a 0%, #020617 100%);
+    border: 1px solid #334155;
+    box-shadow: 
+      0 0 30px rgba(14, 165, 233, 0.1),
+      0 0 60px rgba(14, 165, 233, 0.05),
+      inset 0 1px 0 rgba(148, 163, 184, 0.1);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    position: relative;
+  }
+
+  .terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(14, 165, 233, 0.02) 2px,
+      rgba(14, 165, 233, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Terminal Header */
+  .terminal-header {
+    @apply flex items-center justify-between px-4 py-3;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 1px solid #334155;
+    position: relative;
+    z-index: 2;
+  }
+
+  .terminal-controls {
+    @apply flex items-center gap-2;
+    flex: 0 0 auto;
+    width: 62px;
+  }
+
+  .control-dot {
+    @apply w-3 h-3 rounded-full border-none cursor-pointer transition-all duration-200;
+  }
+
+  .control-dot:hover {
+    @apply transform scale-110 brightness-110;
+  }
+
+  .control-dot.red { @apply bg-red-500; }
+  .control-dot.yellow { @apply bg-yellow-500; }
+  .control-dot.green { @apply bg-green-500; }
+
+  .terminal-file-info {
+    @apply flex items-center gap-2 text-sm;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .file-icon {
+    @apply text-slate-400;
+    font-size: 14px;
+  }
+
+  .filename {
+    @apply text-slate-300 font-medium;
+  }
+
+  .terminal-spacer {
+    flex: 0 0 auto;
+    width: 62px;
+  }
+
+  /* Terminal Content */
+  .terminal-content {
+    @apply p-6 text-sm leading-relaxed relative z-10;
+    background: radial-gradient(ellipse at top, #0f172a 0%, #020617 100%);
+    min-height: 450px; /* Fixed height to prevent resizing */
+    height: 450px; /* Enforce consistent height */
+  }
+
+  /* Command Line */
+  .command-line {
+    @apply flex items-center gap-2 mb-4;
+  }
+
+  .prompt {
+    @apply flex items-center gap-2;
+  }
+
+  .prompt-arrow {
+    @apply text-emerald-400 font-bold;
+  }
+
+  .prompt-path {
+    @apply text-sky-400 font-medium;
+  }
+
+  .command-text {
+    @apply text-white;
+  }
+
+  /* Typed.js cursor styling */
+  .typed-cursor {
+    color: #22d3ee !important; /* Bright cyan, much more visible */
+    font-weight: bold;
+  }
+
+  /* JSON Output */
+  .json-output {
+    @apply space-y-1 ml-4;
+    /* Fix height to prevent window resizing */
+    min-height: 320px;
+  }
+
+  .json-line {
+    @apply transition-all duration-500;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  /* Indentation */
+  .indent-1 { @apply ml-4; }
+  .indent-2 { @apply ml-8; }
+
+  /* JSON Syntax Highlighting */
+  .json-key { @apply text-cyan-300; }
+  .json-string { @apply text-orange-300; }
+  .json-number { @apply text-rose-400; }
+  .json-boolean { @apply text-emerald-400; }
+  .json-bracket { @apply text-yellow-400; }
+  .json-colon { @apply text-slate-400; }
+  .json-comma { @apply text-slate-500; }
+
+  /* Final Prompt */
+  .new-prompt {
+    @apply flex items-center gap-2 mt-6 transition-all duration-500;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .cursor-static {
+    @apply text-cyan-400 font-bold; /* Same bright cyan color */
+    /* Static cursor, same style as typing cursor */
+  }
+
+  /* Hover Effects */
+  .terminal-window:hover {
+    box-shadow: 
+      0 0 40px rgba(14, 165, 233, 0.15),
+      0 0 80px rgba(14, 165, 233, 0.08),
+      inset 0 1px 0 rgba(148, 163, 184, 0.15);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .terminal-content {
+      @apply p-4 text-xs;
+    }
+    
+    .terminal-header {
+      @apply px-3 py-2;
+    }
+    
+    .terminal-file-info {
+      @apply text-xs;
+    }
+    
+    .json-output {
+      @apply ml-2;
+    }
+    
+    .indent-1 { @apply ml-2; }
+    .indent-2 { @apply ml-4; }
+    
+    .file-icon {
+      font-size: 12px;
+    }
+    
+    .terminal-controls {
+      width: 50px;
+    }
+    
+    .terminal-spacer {
+      width: 50px;
+    }
+  }
+</style>

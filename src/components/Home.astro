@@ -1,0 +1,367 @@
+<section id="home" class="home">
+
+  <div class="hero-content p-3">
+    <div class="hero-title">
+      <h1 class="text-white">Hello</h1>
+      <span class="text-white">I am</span>
+      <span class="name-highlight">Naoya Fukada</span>
+      <br>
+      <span class="role-highlight">Software Engineer</span><span class="text-black">.</span>
+    </div>
+    <div class="hero-text py-3">
+      Passionate about creating clean, efficient code and innovative solutions. 
+      Always learning and exploring new technologies to build better digital experiences.
+    </div>
+    <div class="social-links py-3">
+      <a href="https://github.com/naoyafukada" class="social-icon github" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/naoyafukada" class="social-icon linkedin" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="#" class="social-icon CV" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <div class="terminal-controls">
+        <button class="control-dot bg-red-500"></button>
+        <button class="control-dot bg-yellow-500"></button>
+        <button class="control-dot bg-green-500"></button>
+      </div>
+
+      <div class="terminal-file-info">
+        <i class="fa-solid fa-file file-icon"></i>
+        <span class="text-slate-300 font-medium">developer.json</span>
+      </div>
+
+      <div class="terminal-spacer"></div>
+    </div>
+
+    <div class="terminal-content">
+      <div class="command-line">
+        <span class="prompt">
+          <span class="prompt-arrow">➜</span>
+          <span class="prompt-path">~</span>
+        </span>
+        <span id="typed-command" class="typed-command"></span>
+      </div>
+      <div id="json-output" class="json-output" style="display: none;">
+        <div class="json-line">
+          <span class="json-bracket">&#123;</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"name"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Naoya Fukada"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"role"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"skills"</span><span class="json-colon">:</span> 
+          <span class="json-bracket">[</span>
+        </div>
+
+        <div class="json-line indent-2">
+           <span class="json-string">"JavaScript"</span><span class="json-comma">,</span>
+           <span class="json-string">"Python"</span><span class="json-comma">,</span>
+           <span class="json-string">"React"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-2">
+           <span class="json-string">"Node.js"</span><span class="json-comma">,</span>
+           <span class="json-string">"HTML/CSS"</span><span class="json-comma">,</span>
+           <span class="json-string">"Git"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-bracket">]</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"Open to work"</span><span class="json-colon">:</span> 
+          <span class="json-boolean">true</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line indent-1">
+          <span class="json-key">"test"</span><span class="json-colon">:</span> 
+          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
+        </div>
+
+        <div class="json-line">
+          <span class="json-bracket">&#125;</span>
+        </div>
+      </div>
+      
+      <div id="new-command" class="command-line new-command">
+        <span class="prompt">
+          <span class="prompt-arrow">➜</span>
+          <span class="prompt-path">~</span>
+        </span>
+        <span class="typed-command"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Typed from 'typed.js';
+
+  var typed = new Typed('#typed-command', {
+    strings: ['cat developer.json'],
+    typeSpeed: 80,
+    startDelay: 500,
+    cursorChar: '▊',
+    onComplete: (self) => {
+      setTimeout(()=> {
+        self.cursor.remove();
+        showJSONOutput();
+      }, 1000)
+    },
+  });
+
+  function showJSONOutput() {
+    const jsonOutput = document.getElementById('json-output');
+    const newCommand = document.getElementById('new-command');
+
+    if (!jsonOutput || !newCommand) {
+      console.error("Element with ID 'json-output' or 'new-command' not found.");
+      return;
+    }
+
+    jsonOutput.style.display = 'block';
+
+    const jsonLines = jsonOutput.querySelectorAll(".json-line");
+    jsonLines.forEach((line, index) => {
+      setTimeout(() => {
+        (line as HTMLElement).style.opacity = '1';
+        (line as HTMLElement).style.transform = 'translateX(0)';
+      }, index * 200);
+    });
+
+    setTimeout(() => {
+      newCommand.style.display = 'block';
+      newCommand.style.opacity = '1';
+      newCommand.style.transform = 'translateY(0)';
+    }, jsonLines.length * 200 + 500);
+  }
+</script>
+
+<style>
+  @reference "tailwindcss";
+
+  .home {
+    @apply max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center py-20 px-6 md:mt-24 md:scroll-mt-24 z-1;
+  }
+
+  /* Hero Section */
+  .hero-title {
+    @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .name-highlight {
+    @apply bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent;
+  }
+
+  .role-highlight {
+    @apply bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .hero-text {
+    @apply text-lg md:text-xl text-slate-300 leading-relaxed;
+  }
+
+  .social-links {
+    @apply flex gap-4 justify-start;
+  }
+
+  .social-icon {
+    @apply w-10 h-10 p-1.5 rounded-full border-2 transition-all duration-300
+          hover:scale-110 hover:shadow-lg
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
+          focus-visible:ring-offset-sky-950;
+  }
+
+  .social-icon i {
+    @apply w-full h-full;
+  }
+
+  .social-icon.github {
+    @apply border-emerald-400/30 text-emerald-400 
+          hover:bg-emerald-400/20 hover:border-emerald-400 hover:shadow-emerald-400/25
+          focus-visible:ring-emerald-400/60;
+  }
+
+  .social-icon.linkedin {
+    @apply border-blue-400/30 text-blue-400 
+          hover:bg-blue-400/20 hover:border-blue-400 hover:shadow-blue-400/25
+          focus-visible:ring-blue-400/60;
+  }
+
+  .social-icon.CV {
+    @apply border-purple-400/30 text-purple-400 
+          hover:bg-purple-400/20 hover:border-purple-400 hover:shadow-purple-400/25
+          focus-visible:ring-purple-400/60;
+  }
+
+  /* Terminal Section */
+  .terminal-window {
+    @apply rounded-xl shadow-2xl overflow-hidden;
+    background: radial-gradient(ellipse at top, #0f172a 0%, #020617 100%);
+    border: 1px solid #334155;
+    box-shadow: 
+      0 0 30px rgba(14, 165, 233, 0.1),
+      0 0 60px rgba(14, 165, 233, 0.05),
+      inset 0 1px 0 rgba(148, 163, 184, 0.1);
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    position: relative;
+    min-height: 600px;
+  }
+
+  .terminal-window:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(14, 165, 233, 0.02) 2px,
+      rgba(14, 165, 233, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Terminal Header */
+  .terminal-header {
+    @apply flex items-center justify-between px-4 py-3 z-1;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border-bottom: 1px solid #334155;
+    position: relative;
+  }
+
+  .terminal-controls {
+    @apply flex items-center gap-2;
+    flex: 0 0 auto;
+    width: 62px;
+  }
+
+  .control-dot {
+    @apply w-3 h-3 rounded-full border-none cursor-pointer transition-all duration-200;
+  }
+
+  .control-dot:hover {
+    @apply transform scale-110 brightness-110;
+  }
+
+  .terminal-file-info {
+    @apply flex items-center gap-2 text-sm;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .file-icon {
+    @apply text-slate-400;
+    font-size: 14px;
+  }
+
+  .terminal-spacer {
+    flex: 0 0 auto;
+    width: 62px;
+  }
+
+  /* Terminal Content */
+  .terminal-content {
+    @apply p-6 text-sm leading-relaxed relative z-1;
+  }
+
+  .command-line {
+    @apply flex items-center gap-2 mb-4 text-white;
+  }
+
+  .prompt {
+    @apply flex items-center gap-2;
+  }
+
+  .prompt-arrow {
+    @apply text-emerald-400 font-bold;
+  }
+
+  .prompt-path {
+    @apply text-sky-400 font-medium;
+  }
+
+  .typed-command {
+    @apply text-white;
+    font-weight: bold;
+  }
+
+  .json-output { 
+    @apply space-y-1 ml-4;
+  }
+
+  .json-line {
+    @apply transition-all duration-500;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .indent-1 { @apply ml-4;}
+  .indent-2 {@apply ml-8;}
+  
+  .json-key { @apply text-cyan-300; }
+  .json-string { @apply text-orange-300; }
+  .json-number { @apply text-rose-400; }
+  .json-boolean { @apply text-emerald-400; }
+  .json-bracket { @apply text-yellow-400; }
+  .json-colon { @apply text-slate-400; }
+  .json-comma { @apply text-slate-500; }
+
+  .new-command {
+    opacity: 0;
+    transform: translateY(20px);
+    display: none;
+  }
+</style>
