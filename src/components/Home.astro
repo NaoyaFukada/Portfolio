@@ -1,4 +1,4 @@
-<section id="home" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-cente py-20 px-6">
+<section id="home" class="home">
 
   <div class="hero-content p-3">
     <div class="hero-title">
@@ -187,6 +187,10 @@
 <style>
   @reference "tailwindcss";
 
+  .home {
+    @apply max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center py-20 px-6 md:mt-24 md:scroll-mt-24 z-1;
+  }
+
   /* Hero Section */
   .hero-title {
     @apply text-3xl md:text-5xl lg:text-6xl font-bold leading-tight;
@@ -266,15 +270,14 @@
       rgba(14, 165, 233, 0.02) 4px
     );
     pointer-events: none;
-    z-index: 1;
+    z-index: 0;
   }
 
   /* Terminal Header */
   .terminal-header {
-    @apply flex items-center justify-between px-4 py-3;
+    @apply flex items-center justify-between px-4 py-3 z-1;
     background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
     border-bottom: 1px solid #334155;
-    z-index: 2;
     position: relative;
   }
 
@@ -311,7 +314,7 @@
 
   /* Terminal Content */
   .terminal-content {
-    @apply p-6 text-sm leading-relaxed relative z-10;
+    @apply p-6 text-sm leading-relaxed relative z-1;
   }
 
   .command-line {

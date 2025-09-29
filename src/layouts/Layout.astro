@@ -1,29 +1,29 @@
 ---
 import "../styles/global.css";
 
-const symbols = [
-  // Original symbols
+// const symbols = [
+//   // Original symbols
 //   "{}", "[]", "</>", "()", "++", "--", "?:",
   
-  // Programming Operators
-  "&&", "||", "!=", "===", "!==", "<=", ">=", "+=", "-=", "*=", "/=", "%=",
+//   // Programming Operators
+//   "&&", "||", "!=", "===", "!==", "<=", ">=", "+=", "-=", "*=", "/=", "%=",
   
-  // Programming Keywords
-  "const", "let", "var", "if", "else", "for", "while", "try", "catch", 
-  "async", "await", "return", "function", "class", "import", "export",
+//   // Programming Keywords
+//   "const", "let", "var", "if", "else", "for", "while", "try", "catch", 
+//   "async", "await", "return", "function", "class", "import", "export",
   
 //   // Git/Version Control
 //   "git", "commit", "push", "pull", "merge", "branch",
   
 //   // Web Technologies
 //   "HTML", "CSS", "JS", "React", "Node", "API", "JSON", "REST", "HTTP", "HTTPS",
-];
-const particles = symbols.map(sym => ({
-  sym,
-  x: `${Math.random() * 100}%`,
-  y: `${Math.random() * 100}%`,
-  delay: `-${Math.random() * 50}s`
-}));
+// ];
+// const particles = symbols.map(sym => ({
+//   sym,
+//   x: `${Math.random() * 100}%`,
+//   y: `${Math.random() * 100}%`,
+//   delay: `-${Math.random() * 50}s`
+// }));
 
 import Navbar from '../components/Navbar.astro';
 ---
@@ -73,7 +73,7 @@ import Navbar from '../components/Navbar.astro';
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		min-height: 100%;
+		min-height: 1000%;
 		box-sizing: border-box;
 		background: linear-gradient(135deg, #0c4a6e 0%, #1e293b 50%, #312e81 100%);
 	}
@@ -96,13 +96,13 @@ import Navbar from '../components/Navbar.astro';
 	}
 	
 
-	.global-code-particles {
+	/* .global-code-particles {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 10;
+	z-index: -1;
 	pointer-events: none;
 	overflow: hidden;
 	}
@@ -139,13 +139,13 @@ import Navbar from '../components/Navbar.astro';
 
 
 	/* Matrix Binary Rain Effect */
-	.matrix-rain {
+	/* .matrix-rain {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: 1;
+		z-index: -1;
 		pointer-events: none;
 		overflow: hidden;
 	}
@@ -190,5 +190,5 @@ import Navbar from '../components/Navbar.astro';
 		10% { opacity: 1; }
 		90% { opacity: 1; }
 		100% { opacity: 0; }
-	}
+	} */
 </style>
