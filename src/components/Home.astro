@@ -1,3 +1,7 @@
+---
+import JsonArray from "./JsonArray.astro"
+---
+
 <section id="home" class="home">
 
   <div class="hero-content p-3">
@@ -64,26 +68,7 @@
           <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
         </div>
 
-        <div class="json-line indent-1">
-          <span class="json-key">"skills"</span><span class="json-colon">:</span> 
-          <span class="json-bracket">[</span>
-        </div>
-
-        <div class="json-line indent-2">
-           <span class="json-string">"JavaScript"</span><span class="json-comma">,</span>
-           <span class="json-string">"Python"</span><span class="json-comma">,</span>
-           <span class="json-string">"React"</span><span class="json-comma">,</span>
-        </div>
-
-        <div class="json-line indent-2">
-           <span class="json-string">"Node.js"</span><span class="json-comma">,</span>
-           <span class="json-string">"HTML/CSS"</span><span class="json-comma">,</span>
-           <span class="json-string">"Git"</span><span class="json-comma">,</span>
-        </div>
-
-        <div class="json-line indent-1">
-          <span class="json-bracket">]</span><span class="json-comma">,</span>
-        </div>
+        <JsonArray keyName="skills" items={["JavaScript", "Python", "React", "Node.js", "HTML/CSS", "Git"]} />
 
         <div class="json-line indent-1">
           <span class="json-key">"Open to work"</span><span class="json-colon">:</span> 
@@ -342,6 +327,8 @@
     @apply space-y-1 ml-4;
   }
 
+  /* From Here */
+  /* Duplicated code is defined in JsonArray.astro */
   .json-line {
     @apply transition-all duration-500;
     opacity: 0;
@@ -358,6 +345,7 @@
   .json-bracket { @apply text-yellow-400; }
   .json-colon { @apply text-slate-400; }
   .json-comma { @apply text-slate-500; }
+  /* Until Here */
 
   .new-command {
     opacity: 0;
