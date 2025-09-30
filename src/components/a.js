@@ -7,18 +7,24 @@ export function initNavigation() {
   let isMenuOpen = false;
   let lastScroll = 0;
 
+  // Hide/show navbar on scroll
   window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
-
+    
     if (currentScroll <= 100) {
       // Always show at top
       desktopNav?.classList.remove("-translate-y-full");
+      menuToggle?.classList.remove("-translate-y-full");
     } else if (currentScroll > lastScroll) {
+      // Scrolling down - hide
       desktopNav?.classList.add("-translate-y-full");
+      menuToggle?.classList.add("-translate-y-full");
     } else {
+      // Scrolling up - show
       desktopNav?.classList.remove("-translate-y-full");
+      menuToggle?.classList.remove("-translate-y-full");
     }
-
+    
     lastScroll = currentScroll;
   });
 
@@ -54,19 +60,13 @@ export function initNavigation() {
     isMenuOpen ? closeMenu() : openMenu();
   });
 
-  // Close menu when clicking a link (with small delay for tap feedback)
   menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      setTimeout(() => {
-        closeMenu();
-      }, 150);
+      setTimeout(() => closeMenu(), 150);
     });
   });
 
-  // close on Escape key
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && isMenuOpen) {
-      closeMenu();
-    }
+    if (e.key === "Escape" && isMenuOpen) closeMenu();
   });
 }
