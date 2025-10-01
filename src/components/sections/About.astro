@@ -1,15 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import profileImage from '../assets/profile.jpeg';
+import profileImage from '../../assets/profile.jpeg';
+import SectionHeader from '../common/SectionHeader.astro';
 ---
 
 <section id="about" class="about">
-     <div class="header">
-        <h2 class="header-title">
-            About <span class="text-rose-400">Me</span>
-        </h2>
-        <div class="header-underline"></div>
-     </div>
+  
+     <SectionHeader mainText="About" highlightText="Me" color="rose-400"></SectionHeader>
 
      <div class="contents">
         <!-- Left Column -->
@@ -68,25 +65,12 @@ import profileImage from '../assets/profile.jpeg';
   @reference "tailwindcss";
 
   .about {
-    @apply max-w-7xl mx-auto px-6 py-20 z-1;
-  }
-
-  /* Header */
-  .header {
-    @apply text-center mb-16;
-  }
-
-  .header-title {
-    @apply text-5xl md:text-6xl font-bold text-white mb-4;
-  }
-
-  .header-underline {
-    @apply w-24 h-1 bg-rose-400 mx-auto rounded-full;
+    @apply max-w-7xl mx-auto px-6 md:py-20 z-1;
   }
 
   /* Contents */
   .contents {
-    @apply grid md:grid-cols-2 gap-18 items-center;
+    @apply grid md:grid-cols-2 gap-18 items-center mt-16;
   }
 
   .img {

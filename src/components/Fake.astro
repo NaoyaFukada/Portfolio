@@ -1,0 +1,423 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  github?: string;
+  demo?: string;
+  category: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce application with user authentication, product management, and secure payment integration. Features include real-time inventory updates and responsive design.",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    github: "https://github.com/naoyafukada/ecommerce",
+    demo: "https://demo.example.com",
+    category: "fullstack"
+  },
+  {
+    title: "Task Management App",
+    description: "Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features. Built with modern web technologies.",
+    technologies: ["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
+    github: "https://github.com/naoyafukada/taskapp",
+    demo: "https://demo.example.com",
+    category: "fullstack"
+  },
+  {
+    title: "Weather Dashboard",
+    description: "Interactive weather application that displays current conditions, forecasts, and historical data. Features location-based search and beautiful data visualizations.",
+    technologies: ["React", "API Integration", "Chart.js", "Tailwind"],
+    github: "https://github.com/naoyafukada/weather",
+    demo: "https://demo.example.com",
+    category: "frontend"
+  },
+  {
+    title: "Portfolio Generator",
+    description: "A CLI tool that generates customizable portfolio websites from templates. Supports multiple themes, automatic deployment, and easy content management.",
+    technologies: ["Node.js", "CLI", "Templates", "Git"],
+    github: "https://github.com/naoyafukada/portfolio-gen",
+    category: "tools"
+  },
+  {
+    title: "Social Media API",
+    description: "RESTful API for a social media platform with authentication, post management, comments, and real-time notifications. Includes comprehensive documentation.",
+    technologies: ["Express", "MongoDB", "JWT", "Socket.io"],
+    github: "https://github.com/naoyafukada/social-api",
+    category: "backend"
+  },
+  {
+    title: "Machine Learning Dashboard",
+    description: "Data visualization dashboard for ML model performance metrics. Interactive charts, real-time predictions, and model comparison tools.",
+    technologies: ["Python", "Flask", "TensorFlow", "D3.js"],
+    github: "https://github.com/naoyafukada/ml-dashboard",
+    demo: "https://demo.example.com",
+    category: "data"
+  },
+];
+---
+
+<section class="projects">
+  <div class="header">
+    <h2 class="header-title">
+      Featured <span class="text-emerald-400">Projects</span>
+    </h2>
+    <div class="header-underline"></div>
+    <p class="header-subtitle">
+      Building solutions with code, one project at a time
+    </p>
+  </div>
+
+  <!-- Filter Tabs -->
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">
+      <span class="tab-icon">*</span>
+      All Projects
+    </button>
+    <button class="filter-tab" data-filter="fullstack">
+      <span class="tab-icon">&lt;/&gt;</span>
+      Full Stack
+    </button>
+    <button class="filter-tab" data-filter="frontend">
+      <span class="tab-icon">🎨</span>
+      Frontend
+    </button>
+    <button class="filter-tab" data-filter="backend">
+      <span class="tab-icon">⚙️</span>
+      Backend
+    </button>
+    <button class="filter-tab" data-filter="tools">
+      <span class="tab-icon">🔧</span>
+      Tools
+    </button>
+    <button class="filter-tab" data-filter="data">
+      <span class="tab-icon">📊</span>
+      Data
+    </button>
+  </div>
+
+  <div class="projects-container">
+    {projects.map((project, index) => (
+      <div class="project-item" data-category={project.category} data-index={index}>
+        <div class="project-inner">
+          <!-- Front -->
+          <div class="project-front">
+            <div class="front-header">
+              <div class="folder-icon">
+                <i class="fa-regular fa-folder-open"></i>
+              </div>
+              <div class="project-links-top">
+                {project.github && (
+                  <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                )}
+                {project.demo && (
+                  <a href={project.demo} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-description">{project.description}</p>
+
+            <div class="tech-list">
+              {project.technologies.map((tech) => (
+                <span class="tech-item">{tech}</span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Back (shows on hover) -->
+          <div class="project-back">
+            <div class="back-content">
+              <h3 class="back-title">{project.title}</h3>
+              <div class="back-divider"></div>
+              <div class="back-features">
+                <div class="feature-line">
+                  <span class="feature-bullet">▸</span>
+                  <span>Modern architecture</span>
+                </div>
+                <div class="feature-line">
+                  <span class="feature-bullet">▸</span>
+                  <span>Responsive design</span>
+                </div>
+                <div class="feature-line">
+                  <span class="feature-bullet">▸</span>
+                  <span>Best practices</span>
+                </div>
+                <div class="feature-line">
+                  <span class="feature-bullet">▸</span>
+                  <span>Well documented</span>
+                </div>
+              </div>
+              <div class="back-actions">
+                {project.github && (
+                  <a href={project.github} class="back-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    View Code
+                  </a>
+                )}
+                {project.demo && (
+                  <a href={project.demo} class="back-button demo" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-external-link-alt"></i>
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  @reference "tailwindcss";
+
+  .projects {
+    @apply max-w-7xl mx-auto px-6 py-20 z-1;
+  }
+
+  /* Header */
+  .header {
+    @apply text-center mb-12;
+  }
+
+  .header-title {
+    @apply text-5xl md:text-6xl font-bold text-white mb-4;
+  }
+
+  .header-underline {
+    @apply w-24 h-1 bg-emerald-400 mx-auto rounded-full mb-6;
+  }
+
+  .header-subtitle {
+    @apply text-lg text-slate-300 max-w-2xl mx-auto;
+  }
+
+  /* Filter Tabs */
+  .filter-tabs {
+    @apply flex flex-wrap justify-center gap-3 mb-12;
+  }
+
+  .filter-tab {
+    @apply px-4 py-2 rounded-lg border transition-all duration-300
+          flex items-center gap-2 text-sm font-medium
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(71, 85, 105, 0.5);
+    color: #94a3b8;
+  }
+
+  .filter-tab:hover {
+    border-color: #64748b;
+    color: #e2e8f0;
+    transform: translateY(-2px);
+  }
+
+  .filter-tab.active {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+    border-color: #10b981;
+    color: #10b981;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+
+  .tab-icon {
+    @apply text-lg;
+  }
+
+  /* Projects Container */
+  .projects-container {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .project-item {
+    @apply transition-all duration-500;
+    perspective: 1000px;
+    min-height: 350px;
+  }
+
+  .project-item.hidden {
+    @apply opacity-0 scale-95 pointer-events-none;
+    height: 0;
+    margin: 0;
+    min-height: 0;
+  }
+
+  .project-inner {
+    @apply relative w-full h-full transition-transform duration-700;
+    transform-style: preserve-3d;
+  }
+
+  .project-item:hover .project-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Front & Back shared styles */
+  .project-front,
+  .project-back {
+    @apply absolute w-full h-full rounded-xl p-6;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Front Side */
+  .project-front {
+    @apply flex flex-col;
+  }
+
+  .front-header {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .folder-icon {
+    @apply text-4xl text-emerald-400;
+  }
+
+  .project-links-top {
+    @apply flex gap-3;
+  }
+
+  .icon-link {
+    @apply text-slate-400 hover:text-emerald-400 transition-colors duration-300 text-xl;
+  }
+
+  .project-title {
+    @apply text-xl font-bold text-white mb-3;
+  }
+
+  .project-description {
+    @apply text-slate-300 text-sm leading-relaxed mb-auto;
+  }
+
+  .tech-list {
+    @apply flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-700;
+  }
+
+  .tech-item {
+    @apply text-xs text-cyan-300 font-mono;
+  }
+
+  /* Back Side */
+  .project-back {
+    transform: rotateY(180deg);
+    @apply flex items-center justify-center;
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  }
+
+  .back-content {
+    @apply w-full;
+  }
+
+  .back-title {
+    @apply text-2xl font-bold text-center mb-4;
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .back-divider {
+    @apply w-16 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto rounded-full mb-6;
+  }
+
+  .back-features {
+    @apply space-y-3 mb-8;
+  }
+
+  .feature-line {
+    @apply flex items-center gap-3 text-slate-300;
+  }
+
+  .feature-bullet {
+    @apply text-emerald-400 font-bold;
+  }
+
+  .back-actions {
+    @apply flex gap-3 justify-center;
+  }
+
+  .back-button {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+          transition-all duration-300 border
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
+    background: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #10b981;
+  }
+
+  .back-button:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .back-button.demo {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: rgba(6, 182, 212, 0.3);
+    color: #06b6d4;
+  }
+
+  .back-button.demo:hover {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: #06b6d4;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+  }
+
+  /* Animation */
+  .project-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .project-item:nth-child(1) { animation-delay: 0.1s; }
+  .project-item:nth-child(2) { animation-delay: 0.2s; }
+  .project-item:nth-child(3) { animation-delay: 0.3s; }
+  .project-item:nth-child(4) { animation-delay: 0.4s; }
+  .project-item:nth-child(5) { animation-delay: 0.5s; }
+  .project-item:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-tab');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter projects
+      projectItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        
+        if (filter === 'all' || category === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

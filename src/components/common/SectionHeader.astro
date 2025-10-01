@@ -1,0 +1,39 @@
+---
+interface SectionHeaderProps {
+  mainText: string;        // e.g. "About"
+  highlightText: string;   // e.g. "Me"
+  color: string; // e.g. "rose-400"
+  subtitle?: string;
+}
+
+const { mainText, highlightText, color, subtitle } = Astro.props as SectionHeaderProps;
+---
+
+
+<div class="header">
+    <h2 class="title">
+        {mainText} <span class={`text-${color}`}>{highlightText}</span>
+    </h2>
+    <div class={`underline bg-${color}`}></div>
+    <p class="subtitle">{subtitle}</p>
+</div>
+
+<style>
+    @reference "tailwindcss";
+
+    .header {
+        @apply text-center mb-12;
+    }
+
+    .title {
+        @apply text-5xl md:text-6xl font-bold text-white mb-4;
+    }
+
+    .underline {
+        @apply w-24 h-1 mx-auto rounded-full;
+    }
+
+    .subtitle {
+        @apply text-lg text-slate-300 max-w-2xl mx-auto mt-4;
+    }
+</style>
