@@ -6,7 +6,7 @@ import SectionHeader from '../common/SectionHeader.astro';
 
 <section id="about" class="about">
   
-     <SectionHeader mainText="About" highlightText="Me" color="rose-400"></SectionHeader>
+     <SectionHeader mainText="About" highlightText="Me" highlightClass="text-rose-400" underlineClass="bg-rose-400"></SectionHeader>
 
      <div class="contents">
         <!-- Left Column -->
@@ -65,7 +65,7 @@ import SectionHeader from '../common/SectionHeader.astro';
   @reference "tailwindcss";
 
   .about {
-    @apply max-w-7xl mx-auto px-6 md:py-20 z-1;
+    @apply max-w-7xl mx-auto px-6 my-40 scroll-mt-20 z-1;
   }
 
   /* Contents */

@@ -52,7 +52,7 @@ const projects: Project[] = [
 ---
 
 <section id="projects" class="projects">
-    <SectionHeader mainText="Featured" highlightText="Projects" color="emerald-400"
+    <SectionHeader mainText="Featured" highlightText="Projects" highlightClass="text-emerald-400" underlineClass="bg-emerald-400"
         subtitle="Building solutions with code, one project at a time"></SectionHeader>
 
     <div class="filter-tabs">
@@ -169,7 +169,7 @@ const projects: Project[] = [
     @reference "tailwindcss";
 
     .projects {
-        @apply max-w-7xl mx-auto px-6 md:py-20 z-1
+        @apply max-w-7xl mx-auto px-6 my-40 scroll-mt-20 z-1
     }
 
     /* Filter Tabs */
