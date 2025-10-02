@@ -2,19 +2,20 @@
 interface SectionHeaderProps {
   mainText: string;        // e.g. "About"
   highlightText: string;   // e.g. "Me"
-  color: string; // e.g. "rose-400"
+  highlightClass: string;
+  underlineClass: string;
   subtitle?: string;
 }
 
-const { mainText, highlightText, color, subtitle } = Astro.props as SectionHeaderProps;
+const { mainText, highlightText, highlightClass, underlineClass, subtitle } = Astro.props as SectionHeaderProps;
 ---
 
 
 <div class="header">
     <h2 class="title">
-        {mainText} <span class={`text-${color}`}>{highlightText}</span>
+        {mainText} <span class={highlightClass}>{highlightText}</span>
     </h2>
-    <div class={`underline bg-${color}`}></div>
+    <div class={`underline ${underlineClass}`}></div>
     <p class="subtitle">{subtitle}</p>
 </div>
 
