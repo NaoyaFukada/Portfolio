@@ -1,423 +1,399 @@
 ---
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  github?: string;
-  demo?: string;
-  category: string;
+import SectionHeader from "./common/SectionHeader.astro";
+
+interface WorkExperience {
+    company: string;
+    position: string;
+    period: string;
+    startDate: string; // For sorting
+    location: string;
+    description: string;
+    achievements: string[];
+    technologies: string[];
+    type: string; // "fulltime", "parttime", "internship", "contract"
 }
 
-const projects: Project[] = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce application with user authentication, product management, and secure payment integration. Features include real-time inventory updates and responsive design.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com/naoyafukada/ecommerce",
-    demo: "https://demo.example.com",
-    category: "fullstack"
-  },
-  {
-    title: "Task Management App",
-    description: "Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features. Built with modern web technologies.",
-    technologies: ["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
-    github: "https://github.com/naoyafukada/taskapp",
-    demo: "https://demo.example.com",
-    category: "fullstack"
-  },
-  {
-    title: "Weather Dashboard",
-    description: "Interactive weather application that displays current conditions, forecasts, and historical data. Features location-based search and beautiful data visualizations.",
-    technologies: ["React", "API Integration", "Chart.js", "Tailwind"],
-    github: "https://github.com/naoyafukada/weather",
-    demo: "https://demo.example.com",
-    category: "frontend"
-  },
-  {
-    title: "Portfolio Generator",
-    description: "A CLI tool that generates customizable portfolio websites from templates. Supports multiple themes, automatic deployment, and easy content management.",
-    technologies: ["Node.js", "CLI", "Templates", "Git"],
-    github: "https://github.com/naoyafukada/portfolio-gen",
-    category: "tools"
-  },
-  {
-    title: "Social Media API",
-    description: "RESTful API for a social media platform with authentication, post management, comments, and real-time notifications. Includes comprehensive documentation.",
-    technologies: ["Express", "MongoDB", "JWT", "Socket.io"],
-    github: "https://github.com/naoyafukada/social-api",
-    category: "backend"
-  },
-  {
-    title: "Machine Learning Dashboard",
-    description: "Data visualization dashboard for ML model performance metrics. Interactive charts, real-time predictions, and model comparison tools.",
-    technologies: ["Python", "Flask", "TensorFlow", "D3.js"],
-    github: "https://github.com/naoyafukada/ml-dashboard",
-    demo: "https://demo.example.com",
-    category: "data"
-  },
+const experiences: WorkExperience[] = [
+    {
+        company: "Tech Solutions Inc.",
+        position: "Junior Software Engineer",
+        period: "Jan 2024 - Present",
+        startDate: "2024-01",
+        location: "Sydney, Australia",
+        description: "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+        achievements: [
+            "Improved app performance by 40%",
+            "Built 5+ production features",
+            "Mentored 2 junior developers",
+            "Reduced bug reports by 30%"
+        ],
+        technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+        type: "fulltime"
+    },
+    {
+        company: "Digital Agency Co.",
+        position: "Web Developer Intern",
+        period: "Jun 2023 - Dec 2023",
+        startDate: "2023-06",
+        location: "Sydney, Australia",
+        description: "Assisted in building responsive websites for clients. Gained hands-on experience with modern web development tools and practices.",
+        achievements: [
+            "Delivered 3 client projects",
+            "Optimized website speed",
+            "Created reusable components",
+            "Improved SEO rankings"
+        ],
+        technologies: ["HTML", "CSS", "JavaScript", "WordPress"],
+        type: "internship"
+    },
+    {
+        company: "StartupXYZ",
+        position: "Frontend Developer",
+        period: "Mar 2023 - May 2023",
+        startDate: "2023-03",
+        location: "Remote",
+        description: "Contributed to building a SaaS product from the ground up. Focused on creating intuitive user interfaces and ensuring responsive design across devices.",
+        achievements: [
+            "Built responsive UI components",
+            "Implemented user authentication",
+            "Reduced load time by 50%",
+            "Integrated third-party APIs"
+        ],
+        technologies: ["Vue.js", "Tailwind", "Firebase", "REST API"],
+        type: "contract"
+    },
+    {
+        company: "Retail Solutions Ltd.",
+        position: "IT Support Specialist",
+        period: "Jan 2022 - Feb 2023",
+        startDate: "2022-01",
+        location: "Sydney, Australia",
+        description: "Provided technical support and maintained IT infrastructure. Automated routine tasks using Python scripts to improve efficiency.",
+        achievements: [
+            "Automated daily tasks",
+            "Resolved 200+ support tickets",
+            "Maintained 99% uptime",
+            "Trained 10+ staff members"
+        ],
+        technologies: ["Python", "PowerShell", "SQL", "Linux"],
+        type: "parttime"
+    },
 ];
+
+// Sort by start date (most recent first)
+const sortedExperiences = experiences.sort((a, b) => b.startDate.localeCompare(a.startDate));
 ---
 
-<section class="projects">
-  <div class="header">
-    <h2 class="header-title">
-      Featured <span class="text-emerald-400">Projects</span>
-    </h2>
-    <div class="header-underline"></div>
-    <p class="header-subtitle">
-      Building solutions with code, one project at a time
-    </p>
-  </div>
+<section id="experience" class="work">
+    <SectionHeader 
+        mainText="Work" 
+        highlightText="Experience" 
+        highlightClass="text-purple-400" 
+        underlineClass="bg-purple-400"
+        subtitle="My journey into software development"
+    />
 
-  <!-- Filter Tabs -->
-  <div class="filter-tabs">
-    <button class="filter-tab active" data-filter="all">
-      <span class="tab-icon">*</span>
-      All Projects
-    </button>
-    <button class="filter-tab" data-filter="fullstack">
-      <span class="tab-icon">&lt;/&gt;</span>
-      Full Stack
-    </button>
-    <button class="filter-tab" data-filter="frontend">
-      <span class="tab-icon">🎨</span>
-      Frontend
-    </button>
-    <button class="filter-tab" data-filter="backend">
-      <span class="tab-icon">⚙️</span>
-      Backend
-    </button>
-    <button class="filter-tab" data-filter="tools">
-      <span class="tab-icon">🔧</span>
-      Tools
-    </button>
-    <button class="filter-tab" data-filter="data">
-      <span class="tab-icon">📊</span>
-      Data
-    </button>
-  </div>
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">
+            <span class="text-lg">💼</span>
+            All Roles
+        </button>
+        <button class="filter-tab" data-filter="fulltime">
+            <span class="text-lg">🏢</span>
+            Full-time
+        </button>
+        <button class="filter-tab" data-filter="internship">
+            <span class="text-lg">🎓</span>
+            Internship
+        </button>
+        <button class="filter-tab" data-filter="contract">
+            <span class="text-lg">📝</span>
+            Contract
+        </button>
+        <button class="filter-tab" data-filter="parttime">
+            <span class="text-lg">⏰</span>
+            Part-time
+        </button>
+    </div>
 
-  <div class="projects-container">
-    {projects.map((project, index) => (
-      <div class="project-item" data-category={project.category} data-index={index}>
-        <div class="project-inner">
-          <!-- Front -->
-          <div class="project-front">
-            <div class="front-header">
-              <div class="folder-icon">
-                <i class="fa-regular fa-folder-open"></i>
-              </div>
-              <div class="project-links-top">
-                {project.github && (
-                  <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                  </a>
-                )}
-                {project.demo && (
-                  <a href={project.demo} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                )}
-              </div>
+    <!-- Timeline Container -->
+    <div class="timeline-container">
+        {sortedExperiences.map((exp, index) => (
+            <div class="timeline-item" data-category={exp.type}>
+                <!-- Timeline Line and Dot -->
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                    {index < sortedExperiences.length - 1 && (
+                        <div class="timeline-line"></div>
+                    )}
+                </div>
+
+                <!-- Content Card -->
+                <div class="timeline-content">
+                    <div class="content-header">
+                        <div class="header-top">
+                            <h3 class="position-title">{exp.position}</h3>
+                            <span class="period-badge">{exp.period}</span>
+                        </div>
+                        <div class="company-info">
+                            <span class="company-name">
+                                <i class="fa-solid fa-building"></i>
+                                {exp.company}
+                            </span>
+                            <span class="location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                {exp.location}
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="work-description">{exp.description}</p>
+
+                    <div class="achievements-section">
+                        <h4 class="achievements-title">Key Achievements:</h4>
+                        <ul class="achievements-list">
+                            {exp.achievements.map((achievement) => (
+                                <li class="achievement-item">
+                                    <span class="achievement-bullet">▸</span>
+                                    {achievement}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div class="tech-list">
+                        {exp.technologies.map((tech) => (
+                            <span class="tech-item">{tech}</span>
+                        ))}
+                    </div>
+                </div>
             </div>
-
-            <h3 class="project-title">{project.title}</h3>
-            <p class="project-description">{project.description}</p>
-
-            <div class="tech-list">
-              {project.technologies.map((tech) => (
-                <span class="tech-item">{tech}</span>
-              ))}
-            </div>
-          </div>
-
-          <!-- Back (shows on hover) -->
-          <div class="project-back">
-            <div class="back-content">
-              <h3 class="back-title">{project.title}</h3>
-              <div class="back-divider"></div>
-              <div class="back-features">
-                <div class="feature-line">
-                  <span class="feature-bullet">▸</span>
-                  <span>Modern architecture</span>
-                </div>
-                <div class="feature-line">
-                  <span class="feature-bullet">▸</span>
-                  <span>Responsive design</span>
-                </div>
-                <div class="feature-line">
-                  <span class="feature-bullet">▸</span>
-                  <span>Best practices</span>
-                </div>
-                <div class="feature-line">
-                  <span class="feature-bullet">▸</span>
-                  <span>Well documented</span>
-                </div>
-              </div>
-              <div class="back-actions">
-                {project.github && (
-                  <a href={project.github} class="back-button" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-github"></i>
-                    View Code
-                  </a>
-                )}
-                {project.demo && (
-                  <a href={project.demo} class="back-button demo" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-external-link-alt"></i>
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
+        ))}
+    </div>
 </section>
 
 <style>
-  @reference "tailwindcss";
+    @reference "tailwindcss";
 
-  .projects {
-    @apply max-w-7xl mx-auto px-6 py-20 z-1;
-  }
-
-  /* Header */
-  .header {
-    @apply text-center mb-12;
-  }
-
-  .header-title {
-    @apply text-5xl md:text-6xl font-bold text-white mb-4;
-  }
-
-  .header-underline {
-    @apply w-24 h-1 bg-emerald-400 mx-auto rounded-full mb-6;
-  }
-
-  .header-subtitle {
-    @apply text-lg text-slate-300 max-w-2xl mx-auto;
-  }
-
-  /* Filter Tabs */
-  .filter-tabs {
-    @apply flex flex-wrap justify-center gap-3 mb-12;
-  }
-
-  .filter-tab {
-    @apply px-4 py-2 rounded-lg border transition-all duration-300
-          flex items-center gap-2 text-sm font-medium
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
-    background: rgba(15, 23, 42, 0.6);
-    border-color: rgba(71, 85, 105, 0.5);
-    color: #94a3b8;
-  }
-
-  .filter-tab:hover {
-    border-color: #64748b;
-    color: #e2e8f0;
-    transform: translateY(-2px);
-  }
-
-  .filter-tab.active {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
-    border-color: #10b981;
-    color: #10b981;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
-  }
-
-  .tab-icon {
-    @apply text-lg;
-  }
-
-  /* Projects Container */
-  .projects-container {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
-  }
-
-  .project-item {
-    @apply transition-all duration-500;
-    perspective: 1000px;
-    min-height: 350px;
-  }
-
-  .project-item.hidden {
-    @apply opacity-0 scale-95 pointer-events-none;
-    height: 0;
-    margin: 0;
-    min-height: 0;
-  }
-
-  .project-inner {
-    @apply relative w-full h-full transition-transform duration-700;
-    transform-style: preserve-3d;
-  }
-
-  .project-item:hover .project-inner {
-    transform: rotateY(180deg);
-  }
-
-  /* Front & Back shared styles */
-  .project-front,
-  .project-back {
-    @apply absolute w-full h-full rounded-xl p-6;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-    border: 1px solid #334155;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Front Side */
-  .project-front {
-    @apply flex flex-col;
-  }
-
-  .front-header {
-    @apply flex items-center justify-between mb-4;
-  }
-
-  .folder-icon {
-    @apply text-4xl text-emerald-400;
-  }
-
-  .project-links-top {
-    @apply flex gap-3;
-  }
-
-  .icon-link {
-    @apply text-slate-400 hover:text-emerald-400 transition-colors duration-300 text-xl;
-  }
-
-  .project-title {
-    @apply text-xl font-bold text-white mb-3;
-  }
-
-  .project-description {
-    @apply text-slate-300 text-sm leading-relaxed mb-auto;
-  }
-
-  .tech-list {
-    @apply flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-700;
-  }
-
-  .tech-item {
-    @apply text-xs text-cyan-300 font-mono;
-  }
-
-  /* Back Side */
-  .project-back {
-    transform: rotateY(180deg);
-    @apply flex items-center justify-center;
-    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
-  }
-
-  .back-content {
-    @apply w-full;
-  }
-
-  .back-title {
-    @apply text-2xl font-bold text-center mb-4;
-    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .back-divider {
-    @apply w-16 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto rounded-full mb-6;
-  }
-
-  .back-features {
-    @apply space-y-3 mb-8;
-  }
-
-  .feature-line {
-    @apply flex items-center gap-3 text-slate-300;
-  }
-
-  .feature-bullet {
-    @apply text-emerald-400 font-bold;
-  }
-
-  .back-actions {
-    @apply flex gap-3 justify-center;
-  }
-
-  .back-button {
-    @apply flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
-          transition-all duration-300 border
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
-    background: rgba(16, 185, 129, 0.1);
-    border-color: rgba(16, 185, 129, 0.3);
-    color: #10b981;
-  }
-
-  .back-button:hover {
-    background: rgba(16, 185, 129, 0.2);
-    border-color: #10b981;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-  }
-
-  .back-button.demo {
-    background: rgba(6, 182, 212, 0.1);
-    border-color: rgba(6, 182, 212, 0.3);
-    color: #06b6d4;
-  }
-
-  .back-button.demo:hover {
-    background: rgba(6, 182, 212, 0.2);
-    border-color: #06b6d4;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
-  }
-
-  /* Animation */
-  .project-item {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .project-item:nth-child(1) { animation-delay: 0.1s; }
-  .project-item:nth-child(2) { animation-delay: 0.2s; }
-  .project-item:nth-child(3) { animation-delay: 0.3s; }
-  .project-item:nth-child(4) { animation-delay: 0.4s; }
-  .project-item:nth-child(5) { animation-delay: 0.5s; }
-  .project-item:nth-child(6) { animation-delay: 0.6s; }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    .work {
+        @apply max-w-7xl mx-auto px-6 my-20 md:my-40 scroll-mt-20 z-1;
     }
-  }
-</style>
 
-<script>
-  // Filter functionality
-  const filterButtons = document.querySelectorAll('.filter-tab');
-  const projectItems = document.querySelectorAll('.project-item');
+    /* Filter Tabs */
+    .filter-tabs {
+        @apply flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 px-2;
+    }
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter');
-      
-      // Update active state
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      // Filter projects
-      projectItems.forEach(item => {
-        const category = item.getAttribute('data-category');
-        
-        if (filter === 'all' || category === filter) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
+    .filter-tab {
+        @apply px-3 sm:px-4 py-2 rounded-lg border transition-all duration-300
+            flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+        background: rgba(15, 23, 42, 0.6);
+        border-color: rgba(71, 85, 105, 0.5);
+        color: #94a3b8;
+    }
+
+    .filter-tab:hover {
+        border-color: #64748b;
+        color: #e2e8f0;
+        transform: translateY(-2px);
+    }
+
+    .filter-tab.active {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(192, 132, 252, 0.15) 100%);
+        border-color: #a855f7;
+        color: #a855f7;
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Timeline Container */
+    .timeline-container {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .timeline-item {
+        @apply relative grid grid-cols-[auto_1fr] gap-6 md:gap-8 mb-12 last:mb-0
+               transition-all duration-500;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-      });
-    });
-  });
-</script>
+    }
+
+    .timeline-item.hidden {
+        @apply opacity-0 scale-95 pointer-events-none;
+        height: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    /* Timeline Marker (Line + Dot) */
+    .timeline-marker {
+        @apply relative flex flex-col items-center pt-2;
+        width: 40px;
+    }
+
+    .timeline-dot {
+        @apply relative rounded-full flex-shrink-0 transition-all duration-300;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+        box-shadow: 
+            0 0 0 4px rgba(168, 85, 247, 0.2),
+            0 0 20px rgba(168, 85, 247, 0.4);
+        z-index: 2;
+    }
+
+    .timeline-dot::before {
+        content: '';
+        @apply absolute inset-0 rounded-full;
+        background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.3);
+            opacity: 0;
+        }
+    }
+
+    .timeline-item:hover .timeline-dot {
+        box-shadow: 
+            0 0 0 6px rgba(168, 85, 247, 0.3),
+            0 0 30px rgba(168, 85, 247, 0.6);
+        transform: scale(1.2);
+    }
+
+    .timeline-line {
+        @apply w-0.5 flex-1 mt-2;
+        background: linear-gradient(
+            180deg,
+            rgba(168, 85, 247, 0.6) 0%,
+            rgba(168, 85, 247, 0.3) 50%,
+            rgba(168, 85, 247, 0.1) 100%
+        );
+        min-height: 60px;
+    }
+
+    /* Content Card */
+    .timeline-content {
+        @apply rounded-xl p-6 transition-all duration-300;
+        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-item:hover .timeline-content {
+        border-color: rgba(168, 85, 247, 0.5);
+        box-shadow: 
+            0 10px 30px -5px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(168, 85, 247, 0.2);
+        transform: translateX(8px);
+    }
+
+    .content-header {
+        @apply mb-4 pb-4 border-b border-slate-700;
+    }
+
+    .header-top {
+        @apply flex flex-wrap items-start justify-between gap-3 mb-3;
+    }
+
+    .position-title {
+        @apply text-xl md:text-2xl font-bold text-white;
+    }
+
+    .period-badge {
+        @apply text-xs md:text-sm text-purple-300 px-3 py-1 rounded-full whitespace-nowrap;
+        background: rgba(168, 85, 247, 0.1);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+
+    .company-info {
+        @apply flex flex-wrap gap-4 text-sm text-slate-400;
+    }
+
+    .company-name,
+    .location {
+        @apply flex items-center gap-2;
+    }
+
+    .company-name {
+        @apply text-purple-300 font-semibold;
+    }
+
+    .company-name i {
+        @apply text-purple-400;
+    }
+
+    .work-description {
+        @apply text-slate-300 text-sm md:text-base leading-relaxed mb-4;
+    }
+
+    /* Achievements */
+    .achievements-section {
+        @apply mb-4;
+    }
+
+    .achievements-title {
+        @apply text-sm font-semibold text-purple-300 mb-2;
+    }
+
+    .achievements-list {
+        @apply space-y-2 ml-2;
+    }
+
+    .achievement-item {
+        @apply flex items-start gap-2 text-sm text-slate-300;
+        list-style: none;
+    }
+
+    .achievement-bullet {
+        @apply text-purple-400 font-bold flex-shrink-0;
+    }
+
+    /* Technologies */
+    .tech-list {
+        @apply flex flex-wrap gap-2 pt-4 border-t border-slate-700;
+    }
+
+    .tech-item {
+        @apply text-xs text-cyan-300 font-mono px-2 py-1 rounded;
+        background: rgba(6, 182, 212, 0.1);
+        border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .timeline-marker {
+            width: 30px;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateX(4px);
+        }
+    }
+</style>
