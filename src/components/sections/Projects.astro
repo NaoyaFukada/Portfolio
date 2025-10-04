@@ -96,6 +96,13 @@ const filters = [
 <script>
     import { initializeFilter } from "../../utils/filter";
     initializeFilter("#projects", ".project-item");
+
+    const items = document.querySelectorAll('.project-item');
+    items.forEach((item) => {
+        item.addEventListener('click', ()=> {
+            item.classList.toggle('is-flipped');
+        });
+    });
 </script>
 
 <style>
@@ -131,6 +138,13 @@ const filters = [
     .project-item:hover .project-inner {
         transform: rotateY(180deg);
     }
+
+    @media (max-width: 768px) {
+        .project-item.is-flipped .project-inner {
+            transform: rotateY(180deg);
+        }
+    }
+
 
     .project-front, .project-back {
         @apply absolute w-full h-full rounded-xl p-6;
