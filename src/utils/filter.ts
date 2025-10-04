@@ -1,6 +1,7 @@
 /**
  * Filters items based on active filter buttons.
  *
+ * @param parentSelector - CSS selector for the parent container
  * @param itemSelector - CSS selector for the items to be filtered.
  *
  * PREREQUISITES — HTML Structure:
@@ -17,9 +18,22 @@
  *  - The '.hidden' class must be defined in CSS to control item visibility.
  */
 
-export function initializeFilter(itemSelector: string) {
-  const filterButtons = document.querySelectorAll(".filter-tab");
-  const items = document.querySelectorAll(itemSelector);
+export function initializeFilter(parentSelector: string, itemSelector: string) {
+  const parentContainer = document.querySelector(parentSelector);
+  if (!parentContainer) {
+    console.warn(`Parent container not found with selector: ${parentSelector}`);
+    return;
+  }
+
+  const filterButtons = parentContainer.querySelectorAll(".filter-tab");
+  const items = parentContainer.querySelectorAll(itemSelector);
+
+  if (filterButtons.length === 0 || items.length === 0) {
+    console.warn(
+      `Either filterButtons or items are missing in ${parentSelector}`
+    );
+    return;
+  }
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
