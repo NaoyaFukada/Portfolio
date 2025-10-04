@@ -97,12 +97,14 @@ const filters = [
     import { initializeFilter } from "../../utils/filter";
     initializeFilter("#projects", ".project-item");
 
-    const items = document.querySelectorAll('.project-item');
-    items.forEach((item) => {
-        item.addEventListener('click', ()=> {
-            item.classList.toggle('is-flipped');
+    if ('ontouchstart' in window) {
+        const items = document.querySelectorAll('.project-item');
+        items.forEach((item) => {
+            item.addEventListener('click', ()=> {
+                item.classList.toggle('is-flipped');
+            });
         });
-    });
+    }
 </script>
 
 <style>
@@ -135,14 +137,14 @@ const filters = [
         transform-style: preserve-3d;
     }
 
-    .project-item:hover .project-inner {
-        transform: rotateY(180deg);
-    }
-
-    @media (max-width: 768px) {
-        .project-item.is-flipped .project-inner {
+    @media (hover: hover) {
+        .project-item:hover .project-inner {
             transform: rotateY(180deg);
         }
+    }
+
+    .project-item.is-flipped .project-inner {
+        transform: rotateY(180deg);
     }
 
 
