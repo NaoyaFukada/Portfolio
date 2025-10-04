@@ -14,13 +14,13 @@ import SectionHeader from '../common/SectionHeader.astro';
 
   <div class="contents">
     <!-- Left Column -->
-    <div class="group justify-self-end">
+    <div class="group justify-self-center">
       <div class="img">
         <Image src={profileImage} alt="Naoya Fukada" loading="lazy" format="webp" class="w-full h-full object-cover z-100"></Image>
       </div>
     </div>
 
-    <div class="space-y-6 max-w-lg">
+    <div class="justify-self-center space-y-6 max-w-lg">
       <div>
         <h3 class="contents-title">
             My Journey into Software Development
@@ -74,7 +74,7 @@ import SectionHeader from '../common/SectionHeader.astro';
 
   /* Contents */
   .contents {
-    @apply grid md:grid-cols-2 gap-18 items-center mt-16;
+    @apply grid md:grid-cols-2 gap-10 md:gap-0 items-center mt-16;
   }
 
   .img {
