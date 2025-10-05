@@ -16,22 +16,22 @@ export const contactItems: ContactItem[] = [
   {
     icon: "fa-solid fa-envelope",
     label: "Email",
-    value: "your.email@example.com",
-    href: "mailto:your.email@example.com",
+    value: "naoyafukada@icloud.com",
+    href: "mailto:naoyafukada@icloud.com",
     color: "text-emerald-400",
   },
   {
     icon: "fa-solid fa-phone",
     label: "Phone",
-    value: "+61 XXX XXX XXX",
-    href: "tel:+61XXXXXXXXX",
+    value: "+61 420 676 363",
+    href: "tel:+61420676363",
     color: "text-cyan-400",
   },
   {
     icon: "fa-brands fa-linkedin",
     label: "LinkedIn",
     value: "linkedin.com/in/naoyafukada",
-    href: "https://linkedin.com/in/naoyafukada",
+    href: "https://www.linkedin.com/in/naoya-fukada/",
     color: "text-blue-400",
   },
   {
@@ -43,9 +43,9 @@ export const contactItems: ContactItem[] = [
   },
   {
     icon: "fa-solid fa-file-pdf",
-    label: "Resume",
+    label: "CV",
     value: "Download CV",
-    href: "/resume.pdf",
+    href: "/CV.pdf",
     color: "text-amber-400",
   },
 ];

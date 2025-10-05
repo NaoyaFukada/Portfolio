@@ -27,8 +27,8 @@ import {contactItems} from '../../data/contact';
                             <a 
                                 href={item.href} 
                                 class={`contact-value ${item.color}`}
-                                target={item.href.startsWith('http') ? '_blank': undefined}
-                                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                target={item.href.startsWith('http') || item.href.startsWith('/') ? '_blank' : undefined}
+                                rel={item.href.startsWith('http') || item.href.startsWith('/') ? 'noopener noreferrer' : undefined}
                             >
                                 {item.value}
                             </a>
