@@ -1,78 +1,32 @@
 ---
 import SectionHeader from "../common/SectionHeader.astro";
+import FilterTabs from "../common/FilterTabs.astro";
+import {projects} from "../../data/projects";
 
-interface Project {
-    title: string;
-    description: string;
-    technologies: string[];
-    features: string[];
-    github?: string;
-    demo?: string;
-    category: string;
-}
-
-const projects: Project[] = [
-    {
-        title: "E-Commerce Platform",
-        description: "A full-stack e-commerce application with user authentication, product management, and secure payment integration. Features include real-time inventory updates and responsive design.",
-        technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-        features: ["Modern architecture", "Responsive design", "Best practices", "Well documented"],
-        github: "https://github.com/naoyafukada/ecommerce",
-        demo: "https://demo.example.com",
-        category: "fullstack"
-    },
-    {
-        title: "Task Management App",
-        description: "Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features. Built with modern web technologies.",
-        technologies: ["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
-        features: ["Modern architecture", "Responsive design", "Best practices", "Well documented"],
-        github: "https://github.com/naoyafukada/taskapp",
-        demo: "https://demo.example.com",
-        category: "fullstack"
-    },
-    {
-        title: "Weather Dashboard",
-        description: "Interactive weather application that displays current conditions, forecasts, and historical data. Features location-based search and beautiful data visualizations.",
-        technologies: ["React", "API Integration", "Chart.js", "Tailwind"],
-        features: ["Modern architecture", "Responsive design", "Best practices", "Well documented"],
-        github: "https://github.com/naoyafukada/weather",
-        demo: "https://demo.example.com",
-        category: "frontend"
-    },
-    {
-        title: "Social Media API",
-        description: "RESTful API for a social media platform with authentication, post management, comments, and real-time notifications. Includes comprehensive documentation.",
-        technologies: ["Express", "MongoDB", "JWT", "Socket.io"],
-        features: ["Modern architecture", "Responsive design", "Best practices", "Well documented"],
-        github: "https://github.com/naoyafukada/social-api",
-        category: "backend"
-    },
+const filters = [
+    {label: "All Projects", value: "all", icon: "*"},
+    {label: "Full Stack", value: "fullstack", icon: "</>"},
+    {label: "Frontend", value: "frontend", icon: "🎨"},
+    {label: "Backend", value: "backend", icon: "⚙️"},
 ]
-
 ---
 
 <section id="projects" class="projects">
-    <SectionHeader mainText="My" highlightText="Projects" highlightClass="text-emerald-400" underlineClass="bg-emerald-400"
-        subtitle="Building solutions with code, one project at a time"></SectionHeader>
+    <SectionHeader 
+        mainText="My" 
+        highlightText="Projects" 
+        highlightClass="text-emerald-400" 
+        underlineClass="bg-emerald-400"
+        subtitle="Building solutions with code, one project at a time" 
+    />
 
-    <div class="filter-tabs">
-        <button class="filter-tab active" data-filter="all">
-            <span class="text-icon">*</span>
-            All Projects
-        </button>
-        <button class="filter-tab" data-filter="fullstack">
-            <span class="text-lg">&lt;/&gt;</span>
-            Full Stack
-        </button>
-        <button class="filter-tab" data-filter="frontend">
-            <span class="text-lg">🎨</span>
-            Frontend
-        </button>
-        <button class="filter-tab" data-filter="backend">
-            <span class="text-lg">⚙️</span>
-            Backend
-        </button>
-    </div>
+    <FilterTabs
+        filters={filters}
+        sectionColor="#10b981"
+        gradientStart="rgba(16, 185, 129, 0.15)"
+        gradientEnd="rgba(6, 182, 212, 0.15)"
+        boxShadow="rgba(16, 185, 129, 0.2)"
+    />
 
     <div class="projects-container">
         {projects.map((project) => (
@@ -140,29 +94,17 @@ const projects: Project[] = [
 </section>
 
 <script>
-    const filterButtons = document.querySelectorAll('.filter-tab');
-    const projectItems = document.querySelectorAll('.project-item');
+    import { initializeFilter } from "../../utils/filter";
+    initializeFilter("#projects", ".project-item");
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', ()=> {
-            const filter = button.getAttribute('data-filter');
-
-            // Update active state
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            // Filter Projects
-            projectItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-
-                if (filter === 'all' || category === filter) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            })
-        })
-    })
+    if ('ontouchstart' in window) {
+        const items = document.querySelectorAll('.project-item');
+        items.forEach((item) => {
+            item.addEventListener('click', ()=> {
+                item.classList.toggle('is-flipped');
+            });
+        });
+    }
 </script>
 
 <style>
@@ -170,33 +112,6 @@ const projects: Project[] = [
 
     .projects {
         @apply max-w-7xl mx-auto px-6 my-20 md:my-40 scroll-mt-20 z-1
-    }
-
-    /* Filter Tabs */
-    .filter-tabs {
-        @apply flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2;
-    }
-    
-    .filter-tab {
-        @apply px-3 sm:px-4 py-2 rounded-lg border transition-all duration-300
-            flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
-        background: rgba(15, 23, 42, 0.6);
-        border-color: rgba(71, 85, 105, 0.5);
-        color: #94a3b8;
-    }
-
-    .filter-tab:hover {
-        border-color: #64748b;
-        color: #e2e8f0;
-        transform: translateY(-2px);
-    }
-
-    .filter-tab.active {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
-        border-color: #10b981;
-        color: #10b981;
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
     }
 
     /* Projects Container */
@@ -222,9 +137,16 @@ const projects: Project[] = [
         transform-style: preserve-3d;
     }
 
-    .project-item:hover .project-inner {
+    @media (hover: hover) {
+        .project-item:hover .project-inner {
+            transform: rotateY(180deg);
+        }
+    }
+
+    .project-item.is-flipped .project-inner {
         transform: rotateY(180deg);
     }
+
 
     .project-front, .project-back {
         @apply absolute w-full h-full rounded-xl p-6;

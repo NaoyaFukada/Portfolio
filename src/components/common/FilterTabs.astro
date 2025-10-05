@@ -1,0 +1,56 @@
+---
+interface Filter {
+    label: string;
+    value: string;
+    icon: string;
+}
+
+interface Props {
+    filters: Filter[];
+    sectionColor: string;
+    gradientStart: string;
+    gradientEnd: string;
+    boxShadow: string;
+}
+
+const {filters, sectionColor, gradientStart, gradientEnd, boxShadow} = Astro.props;
+---
+
+<div class="filter-tabs" style={`--sectionColor: ${sectionColor}; --gradientStart: ${gradientStart}; --gradientEnd: ${gradientEnd}; --boxShadow: ${boxShadow}`}>
+    {filters.map((filter, index) => (
+        <button class={`filter-tab ${index === 0 ? 'active' : ''}`} data-filter={filter.value}>
+            <span class="text-lg">{filter.icon}</span>
+            {filter.label}
+        </button>
+    ))}
+</div>
+
+<style>
+    @reference "tailwindcss";
+
+    .filter-tabs {
+        @apply flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2;
+    }
+    
+    .filter-tab {
+        @apply px-3 sm:px-4 py-2 rounded-lg border transition-all duration-300
+            flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-medium
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
+        background: rgba(15, 23, 42, 0.6);
+        border-color: rgba(71, 85, 105, 0.5);
+        color: #94a3b8;
+    }
+
+    .filter-tab:hover {
+        border-color: #64748b;
+        color: #e2e8f0;
+        transform: translateY(-2px);
+    }
+
+    .filter-tab.active {
+        background: linear-gradient(135deg, var(--gradientStart) 0%, var(--gradientEnd) 100%);
+        border-color: var(--sectionColor);
+        color: var(--sectionColor);
+        box-shadow: 0 0 20px var(--boxShadow);
+    }
+</style>
