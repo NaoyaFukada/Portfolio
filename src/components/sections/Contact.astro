@@ -1,0 +1,124 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+import {contactItems} from '../../data/contact';
+---
+
+<section id="contact" class="contact">
+    <SectionHeader
+        maintext="Get In"
+        highlightText="Touch"
+        highlightClass="text-indigo-400"
+        underlineClass="bg-indigo-400"
+        subtitle="Feel free to reach out for collaborations or just a friendly chat"
+    />
+
+    <div class="contact-grid">
+        {contactItems.map((item) => (
+            <div class="card group">
+                <div class="flex items-start gap-4">
+                    <div class={`icon-wrapper ${item.color}`}>
+                        <i class={item.icon}></i>
+                    </div>
+                    <div class="flex flex-col gap-1 flex-1">
+                        <span class="text-sm text-slate-400 font-medium">
+                            {item.label}
+                        </span>
+                        {item.href ? (
+                            <a 
+                                href={item.href} 
+                                class={`contact-value ${item.color}`}
+                                target={item.href.startsWith('http') ? '_blank': undefined}
+                                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            >
+                                {item.value}
+                            </a>
+                        ) : (
+                            <span class="contact-value">{item.value}</span>
+                        )}
+                    </div>
+                </div>
+            </div>
+        ))}
+    </div>
+
+    <div class="cta-section">
+        <p class="text-xl text-slate-300">
+            Let's work together to create something amazing!
+        </p>
+        <a href="mailto:naoyafukada@icloud.com" class="cta-button">
+            <i class="fa-solid fa-paper-plane"></i>
+            Send Message
+        </a>
+    </div>
+</section>
+
+<style>
+    @reference "tailwindcss";
+
+    .contact {
+        @apply max-w-7xl mx-auto px-6 my-20 md:my-40 scroll-mt-20 z-1;
+    }
+
+    .contact-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16;
+    }
+
+    .card {
+        @apply rounded-xl p-6 transition-all duration-300;
+        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+        @apply -translate-y-2;
+        border-color: #475569;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon-wrapper {
+        @apply text-3xl p-3 rounded-lg transition-all duration-300;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .card:hover .icon-wrapper {
+        @apply scale-110;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-value {
+        @apply text-slate-200 font-medium break-all transition-colors duration-300;
+    }
+
+    a.contact-value:hover {
+        @apply underline;
+    }
+
+    .cta-section {
+        @apply mt-16 text-center space-y-6;
+    }
+
+    .cta-button {
+        @apply inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg
+            transition-all duration-300 border-2
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        border-color: rgba(99, 102, 241, 0.3);
+        color: #a5b4fc;
+    }
+
+    .cta-button:hover {
+        @apply -translate-y-1;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+        border-color: #818cf8;
+        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    }
+
+    .cta-button i {
+        @apply transition-transform duration-300;
+    }
+
+    .cta-button:hover i {
+        @apply translate-x-1;
+    }
+</style>
