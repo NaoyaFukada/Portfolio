@@ -10,62 +10,26 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Personal Portfolio Website",
     description:
-      "A full-stack e-commerce application with user authentication, product management, and secure payment integration. Features include real-time inventory updates and responsive design.",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    features: [
-      "Modern architecture",
-      "Responsive design",
-      "Best practices",
-      "Well documented",
-    ],
-    github: "https://github.com/naoyafukada/ecommerce",
-    demo: "https://demo.example.com",
-    category: "fullstack",
-  },
-  {
-    title: "Task Management App",
-    description:
-      "Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features. Built with modern web technologies.",
-    technologies: ["TypeScript", "Next.js", "Prisma", "PostgreSQL"],
-    features: [
-      "Modern architecture",
-      "Responsive design",
-      "Best practices",
-      "Well documented",
-    ],
-    github: "https://github.com/naoyafukada/taskapp",
-    demo: "https://demo.example.com",
-    category: "fullstack",
-  },
-  {
-    title: "Weather Dashboard",
-    description:
-      "Interactive weather application that displays current conditions, forecasts, and historical data. Features location-based search and beautiful data visualizations.",
-    technologies: ["React", "API Integration", "Chart.js", "Tailwind"],
-    features: [
-      "Modern architecture",
-      "Responsive design",
-      "Best practices",
-      "Well documented",
-    ],
-    github: "https://github.com/naoyafukada/weather",
-    demo: "https://demo.example.com",
+      "A modern, responsive portfolio website showcasing my projects, education, and skills. Features smooth animations, interactive UI elements, and a clean design.",
+    technologies: ["Astro", "TypeScript", "Tailwind CSS"],
+    features: ["Responsive design", "Modern UI/UX", "Smooth animations"],
+    github: "https://github.com/NaoyaFukada/Portfolio",
+    demo: "https://naoyafukada.vercel.app/",
     category: "frontend",
   },
   {
-    title: "Social Media API",
+    title: "Event Engine Microservice",
     description:
-      "RESTful API for a social media platform with authentication, post management, comments, and real-time notifications. Includes comprehensive documentation.",
-    technologies: ["Express", "MongoDB", "JWT", "Socket.io"],
+      "A scalable event-driven microservice built in PHP with Microsoft SQL Server to detect aviation operational events in real time as part of Skynet Aviation's new software system.",
+    technologies: ["PHP", "Microsoft SQL Server", "Docker", "SQL Triggers"],
     features: [
-      "Modern architecture",
-      "Responsive design",
-      "Best practices",
-      "Well documented",
+      "Real-time event detection",
+      "Rule-based logic system",
+      "Optimized SQL performance",
+      "Scalable design",
     ],
-    github: "https://github.com/naoyafukada/social-api",
     category: "backend",
   },
 ];

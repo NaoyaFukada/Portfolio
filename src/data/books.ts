@@ -6,33 +6,23 @@ interface Book {
 
 export const favoriteBooks: Book[] = [
   {
-    title: "Clean Code",
-    author: "Robert C. Martin",
-    category: "Software Craftsmanship",
+    title: "The Art of Readable Code",
+    author: "Trevor Foucher & Dustin Boswell",
+    category: "Software Engineering",
   },
   {
-    title: "Design Patterns",
-    author: "Gang of Four",
-    category: "Software Architecture",
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann",
+    category: "System Design",
   },
   {
-    title: "The Pragmatic Programmer",
-    author: "Andrew Hunt & David Thomas",
-    category: "Software Development",
+    title: "Rich Dad Poor Dad",
+    author: "Robert Kiyosaki",
+    category: "Personal Finance",
   },
   {
-    title: "You Don't Know JS",
-    author: "Kyle Simpson",
-    category: "JavaScript",
-  },
-  {
-    title: "Introduction to Algorithms",
-    author: "Cormen, Leiserson, Rivest & Stein",
-    category: "Algorithms",
-  },
-  {
-    title: "Eloquent JavaScript",
-    author: "Marijn Haverbeke",
-    category: "JavaScript",
+    title: "The Millionaire Next Door",
+    author: "Thomas J. Stanley",
+    category: "Personal Finance",
   },
 ];
