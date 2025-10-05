@@ -1,0 +1,210 @@
+---
+import SectionHeader from '../common/SectionHeader.astro';
+import {education} from '../../data/education';
+import {certificates} from '../../data/certificates';
+import {favoriteBooks} from '../../data/books';
+---
+
+<section id="education" class="education">
+    <SectionHeader
+        mainText="My"
+        highlightText="Education"
+        highlightClass="text-amber-400"
+        underlineClass="bg-amber-400"
+        subtitle="Academic journey and professional certificates"
+    />
+
+    <div class="mt-16 space-y-16">
+        <!-- School Education -->
+        <div class="space-y-8">
+            {education.map((edu, i) => (
+                <div class="edu" data-index={i}>
+                    <div class="edu-header">
+                        <div class="edu-icon">
+                            <i class={`fas ${edu.icon}`}></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">{edu.institution}</h3>
+                            <p class="text-lg text-amber-300 mb-1">{edu.degree}</p>
+                            <p class="text-sm text-slate-400">{edu.period}</p>
+                        </div>
+                    </div>
+
+                    {edu.gpa && (
+                        <div class="gpa-badge">
+                            <span class="text-sm text-slate-300 font-medium">GPA:</span>
+                            <span class="text-xl font-bold text-amber-400">{edu.gpa}</span>
+                        </div>
+                    )}
+
+                    { /* Achievements */}
+                    <div>
+                        <h4 class="text-lg font-semibold text-white mb-4">Achievements</h4>
+                        <ul class="space-y-3 list-none">
+                            {edu.achievements.map((achievement) => (
+                                <li class="flex items-start gap-3 text-slate-300">
+                                    <i class="fas fa-star text-amber-400 mt-1 flex-shrink-0"></i>
+                                    <span>{achievement}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Certifications -->
+        <div class="mt-16">
+            <h3 class="subtitle">Professional Certifications</h3>
+            <div class="cert-grid">
+                {certificates.map((cert, i) => (
+                    <div class="cert-card" data-index={i}>
+                        <div class="cert-icon">
+                            <i class={`fas ${cert.icon}`}></i>
+                        </div>
+                         {/* Cert Content */}
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-white mb-1">{cert.title}</h4>
+                            <p class="text-sm text-slate-400">{cert.issuer}</p>
+                        </div>
+                        {/* Cert Badge */}
+                        <div class="text-xl flex-shrink-0 text-emerald-400">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Books -->
+        <div class="mt-16">
+            <div class="subtitle">Favorite Books</div>
+            <p class="text-center text-slate-400 mb-8 max-w-2xl mx-auto">Books that have shaped my understanding and approach to software development</p>
+            <div class="books-grid">
+                {favoriteBooks.map((book, i) => (
+                    <div class="book-card" data-index={i}>
+                        <div class="book-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white leading-tight">{book.title}</h4>
+                            <p class="text-sm text-slate-400">{book.author}</p>
+                            <span class="book-category">{book.category}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<style>
+    @reference 'tailwindcss';
+
+    .education {
+        @apply max-w-7xl mx-auto px-6 my-20 md:my-40 scroll-mt-20 z-1
+    }
+
+    /* Education */
+    .edu {
+        @apply rounded-xl p-6 md:p-8 transition-all duration-500;
+        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    }
+
+    .edu:hover {
+        border-color: #fbbf24;
+        box-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .edu-header {
+        @apply flex flex-col sm:flex-row gap-4 mb-6 pb-6 border-b border-slate-700;
+    }
+
+    .edu-icon {
+        @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl flex-shrink-0;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+        color: #fbbf24;
+    }
+
+    .gpa-badge {
+        @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg mb-6;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
+        border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .subtitle {
+        @apply text-3xl font-bold text-center mb-8;
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Certifications */
+    .cert-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+    }
+
+    .cert-card {
+        @apply flex items-center gap-4 rounded-xl p-6 transition-all duration-300;
+        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+    }
+
+    .cert-card:hover {
+        border-color: #fbbf24;
+        box-shadow: 0 0 20px rgba(251, 191, 36, 0.15);
+        transform: translateY(-3px);
+    }
+
+    .cert-icon {
+        @apply w-12 h-12 rounded-lg flex items-center justify-center text-xl flex-shrink-0;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+        color: #fbbf24;
+    }
+
+    /* Books */
+    .books-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
+
+    .book-card {
+        @apply rounded-xl p-6 transition-all duration-300;
+        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+    }
+
+    .book-card:hover {
+        border-color: #fbbf24;
+        box-shadow: 0 0 25px rgba(251, 191, 36, 0.15);
+        transform: translateY(-5px) scale(1.02);
+    }
+
+    .book-icon {
+        @apply w-12 h-12 rounded-lg flex items-center justify-center text-2xl mb-4;
+        background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+        color: #fbbf24;
+    }
+
+    .book-category {
+        @apply inline-block px-3 py-1 rounded-full text-xs font-medium mt-3;
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.2);
+        color: #fbbf24;
+    }
+
+
+
+
+
+
+
+
+
+
+
+</style>
