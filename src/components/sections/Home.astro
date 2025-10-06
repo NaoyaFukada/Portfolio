@@ -1,5 +1,5 @@
 ---
-import JsonArray from "../common/JsonArray.astro"
+import {developerInfo} from "../../data/developerInfo";
 ---
 
 <section id="home" class="home">
@@ -58,22 +58,52 @@ import JsonArray from "../common/JsonArray.astro"
           <span class="json-bracket">&#123;</span>
         </div>
 
-        <div class="json-line indent-1">
-          <span class="json-key">"name"</span><span class="json-colon">:</span> 
-          <span class="json-string">"Naoya Fukada"</span><span class="json-comma">,</span>
-        </div>
+        {developerInfo.map((field, i) => {
+          const isLast = i === developerInfo.length - 1;
 
-        <div class="json-line indent-1">
-          <span class="json-key">"role"</span><span class="json-colon">:</span> 
-          <span class="json-string">"Junior Software Enginner"</span><span class="json-comma">,</span>
-        </div>
+          if (field.type === "string") {
+            return (
+              <div class="json-line indent-1">
+                <span class="json-key">"{field.key}"</span><span class="json-colon">:</span> 
+                <span class="json-string">"{field.value}"</span>{!isLast && <span class="json-comma">,</span>}
+              </div>
+            )
+          } else if (field.type === "boolean") {
+            return (
+             <div class="json-line indent-1">
+              <span class="json-key">"{field.key}"</span><span class="json-colon">:</span> 
+              <span class="json-boolean">{field.value}</span>{!isLast && <span class="json-comma">,</span>}
+            </div>
+            )
+          } else if (field.type === "array") {
+            const arrayValue = field.value as string[];
 
-        <JsonArray keyName="skills" items={["JavaScript", "Python", "React", "Node.js", "HTML/CSS", "Git"]} />
-
-        <div class="json-line indent-1">
-          <span class="json-key">"Open to work"</span><span class="json-colon">:</span> 
-          <span class="json-boolean">true</span><span class="json-comma">,</span>
-        </div>
+            return [
+              (
+                <div class="json-line indent-1">
+                    <span class="json-key">"{field.key}"</span><span class="json-colon">:</span>
+                    <span class="json-bracket">[</span>
+                </div>
+              ),
+              (
+                <div class="json-line indent-2">
+                    {arrayValue.map((item, itemIndex) => (
+                        <>
+                        <span class="json-string">"{item}"</span>{!(itemIndex === arrayValue.length -1) && (
+                            <span class="json-comma">,</span>
+                        )} 
+                        </>
+                    ))}
+                </div>
+              ),
+              (
+                <div class="json-line indent-1">
+                  <span class="json-bracket">]</span>{!isLast && <span class="json-comma">,</span>}
+                </div>
+              )
+            ]
+          }
+        })}
 
         <div class="json-line">
           <span class="json-bracket">&#125;</span>
@@ -202,7 +232,7 @@ import JsonArray from "../common/JsonArray.astro"
       inset 0 1px 0 rgba(148, 163, 184, 0.1);
     font-family: 'JetBrains Mono', 'Fira Code', monospace;
     position: relative;
-    min-height: 100%;
+    min-height: 500px;
   }
 
   .terminal-window:before {
@@ -292,8 +322,6 @@ import JsonArray from "../common/JsonArray.astro"
     @apply space-y-1 ml-4;
   }
 
-  /* From Here */
-  /* Duplicated code is defined in JsonArray.astro */
   .json-line {
     @apply transition-all duration-500;
     opacity: 0;
@@ -310,7 +338,6 @@ import JsonArray from "../common/JsonArray.astro"
   .json-bracket { @apply text-yellow-400; }
   .json-colon { @apply text-slate-400; }
   .json-comma { @apply text-slate-500; }
-  /* Until Here */
 
   .new-command {
     opacity: 0;
