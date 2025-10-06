@@ -11,16 +11,6 @@ export const developerInfo: DeveloperField[] = [
     type: "string",
   },
   {
-    key: "role",
-    value: "Junior Software Engineer",
-    type: "string",
-  },
-  {
-    key: "skills",
-    value: ["JavaScript", "Python", "React", "Node.js", "HTML/CSS", "Git"],
-    type: "array",
-  },
-  {
     key: "passion",
     value: [
       "Software Development",
@@ -29,6 +19,18 @@ export const developerInfo: DeveloperField[] = [
       "Finance",
       "Marketing",
       "Real Estate",
+    ],
+    type: "array",
+  },
+  {
+    key: "softSkills",
+    value: [
+      "Attention to detail",
+      "Hardworking",
+      "Strong problem-solving skills",
+      "Reliable",
+      "Team player",
+      "Always curious to learn",
     ],
     type: "array",
   },

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import profileImage from '../../assets/profile.jpg';
 import SectionHeader from '../common/SectionHeader.astro';
+import {aboutInfo} from '../../data/aboutInfo';
 ---
 
 <section id="about" class="about">
@@ -21,45 +22,33 @@ import SectionHeader from '../common/SectionHeader.astro';
     </div>
 
     <div class="justify-self-center space-y-6 max-w-lg">
-      <div>
-        <h3 class="contents-title">
-            My Journey into Software Development
-        </h3>
-        <p class="contents-text mb-4">
-            I discovered my love for coding through building projects that solve real-world problems. 
-            What started as curiosity quickly became a passion for turning ideas into functional, 
-            user-friendly applications.
-        </p>
+      <div class="space-y-4">
+          <h3 class="contents-title">
+              My Journey into Software
+          </h3>
+          <p class="contents-text">
+            I've always loved problem-solving and logical thinking—mathematics was my refuge 
+            when other subjects felt overwhelming. This passion naturally led me to software 
+            development, where logic meets creativity to solve real-world problems.
+          </p>
 
-        <p class="contents-text">
-            I discovered my love for coding through building projects that solve real-world problems. 
-            What started as curiosity quickly became a passion for turning ideas into functional, 
-            user-friendly applications.
-        </p>
+          <p class="contents-text">
+            Right after high school, I started learning to code independently. The satisfaction 
+            of building working software was unlike anything I'd experienced before. Each project 
+            deepened my passion for creating meaningful solutions through code.
+          </p>
       </div>
 
       <div class="quickFacts">
-        <div class="fact-item">
-          <span class="text-xl">🎓</span>
-          <div>
-            <span class="fact-title">Education:</span>
-            <span class="ml-2">Bachelor of Information Technology</span>
-          </div>
-        </div>
-        <div class="fact-item">
-          <span class="text-xl">💡</span>
-          <div>
-            <span class="fact-title">Interests:</span>
-            <span class="ml-2">Web Development, UI/UX, Problem Solving</span>
-          </div>
-        </div>
-        <div class="fact-item">
-          <span class="text-xl">📍</span>
-          <div>
-            <span class="fact-title">Location:</span>
-            <span class="ml-2">Sydney, Australia</span>
-          </div>
-        </div>
+        {aboutInfo.map((field) => (
+           <div class="fact-item">
+              <span class="text-xl">{field.icon}</span>
+              <div>
+                <span class="fact-title">{field.key}:</span>
+                <span class="ml-2">{field.value}</span>
+              </div>
+            </div>
+        ))}
       </div>
     </div>
   </div>
@@ -74,7 +63,7 @@ import SectionHeader from '../common/SectionHeader.astro';
 
   /* Contents */
   .contents {
-    @apply grid md:grid-cols-2 gap-10 md:gap-0 items-center mt-16;
+    @apply grid md:grid-cols-2 gap-10 md:gap-12 items-start mt-16;
   }
 
   .img {
@@ -82,7 +71,7 @@ import SectionHeader from '../common/SectionHeader.astro';
   }
 
   .contents-title {
-    @apply text-3xl font-bold text-white mb-4;
+    @apply text-3xl font-bold text-white mb-6;
   }
 
   .contents-text {
@@ -90,7 +79,7 @@ import SectionHeader from '../common/SectionHeader.astro';
   }
 
   .quickFacts {
-    @apply space-y-3 pt-4;
+    @apply space-y-3;
   }
 
   .fact-item {
