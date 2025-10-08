@@ -54,8 +54,10 @@ const filters = [
                         <p class="project-description">{project.description}</p>
 
                         <div class="tech-list">
-                            {project.technologies.map((tech) => (
-                                <span class="tech-item">{tech}</span>
+                            {project.technologies.map((tech, i) => (
+                                <span class="tech-item">
+                                    {tech}{i !== project.technologies.length - 1 && ', '}
+                                </span>
                             ))}
                         </div>
                     </div>

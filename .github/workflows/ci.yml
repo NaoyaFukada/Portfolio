@@ -1,11 +1,11 @@
 name: CI
-run-name: "Build and Test for ${{ github.ref_name}} by ${{ github.actor }}"
+run-name: "Test for ${{ github.ref_name}} by ${{ github.actor }}"
 on:
   push:
   pull_request:
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
     steps:
       # Clone your repo into the GitHub Actions virtual machine so your workflow

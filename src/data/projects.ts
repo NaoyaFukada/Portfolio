@@ -13,7 +13,14 @@ export const projects: Project[] = [
     title: "Personal Portfolio Website",
     description:
       "A modern, responsive portfolio website showcasing my projects, education, and skills. Features smooth animations, interactive UI elements, and a clean design.",
-    technologies: ["Astro", "TypeScript", "Tailwind CSS"],
+    technologies: [
+      "Astro",
+      "TypeScript",
+      "Tailwind",
+      "Vitest",
+      "GitHub Actions",
+      "Vercel",
+    ],
     features: ["Responsive design", "Modern UI/UX", "Smooth animations"],
     github: "https://github.com/NaoyaFukada/Portfolio",
     demo: "https://naoyafukada.vercel.app/",
