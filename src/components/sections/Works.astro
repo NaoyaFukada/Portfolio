@@ -3,7 +3,13 @@ import SectionHeader from "../common/SectionHeader.astro";
 import FilterTabs from "../common/FilterTabs.astro";
 import {experiences} from '../../data/experiences';
 
-const sortedExperiences = experiences.sort((a, b) => b.startDate.localeCompare(a.startDate));
+const sortedExperiences = experiences.sort((a, b) => {
+    const endA = a.endDate === "Present" ? "9999-12" : a.endDate;
+    const endB = b.endDate === "Present" ? "9999-12" : b.endDate;
+    const endDateComparison = endB.localeCompare(endA);
+    if (endDateComparison !== 0) return endDateComparison;
+    return b.startDate.localeCompare(a.startDate);
+});
 
 const filters = [
     {label: "All Roles", value: "all", icon: "*"},
@@ -72,9 +78,9 @@ const filters = [
                         </ul>
                     </div>
 
-                    <div class="tech-list">
-                        {exp.technologies.map((tech) => (
-                            <span class="tech-item">{tech}</span>
+                    <div class="skill-list">
+                        {exp.skills.map((skill) => (
+                            <span class="skill-item">{skill}</span>
                         ))}
                     </div>
                 </div>
@@ -212,11 +218,11 @@ const filters = [
         @apply text-purple-400 font-bold flex-shrink-0;
     }
 
-    .tech-list {
+    .skill-list {
         @apply flex flex-wrap gap-2 pt-4 border-t border-slate-700;
     }
 
-    .tech-item {
+    .skill-item {
         @apply text-xs text-cyan-300 font-mono px-2 py-1 rounded;
         background: rgba(6, 182, 212, 0.1);
         border: 1px solid rgba(6, 182, 212, 0.2);
