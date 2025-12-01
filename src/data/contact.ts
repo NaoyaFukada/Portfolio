@@ -20,13 +20,13 @@ export const contactItems: ContactItem[] = [
     href: "mailto:naoyafukada@icloud.com",
     color: "text-emerald-400",
   },
-  {
-    icon: "fa-solid fa-phone",
-    label: "Phone",
-    value: "+61 420 676 363",
-    href: "tel:+61420676363",
-    color: "text-cyan-400",
-  },
+  // {
+  //   icon: "fa-solid fa-phone",
+  //   label: "Phone",
+  //   value: "+61 420 676 363",
+  //   href: "tel:+61420676363",
+  //   color: "text-cyan-400",
+  // },
   {
     icon: "fa-brands fa-linkedin",
     label: "LinkedIn",
