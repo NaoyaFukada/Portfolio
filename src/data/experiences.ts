@@ -22,7 +22,7 @@ export const experiences: WorkExperience[] = [
     location: "Chatswood, Sydney, NSW, Australia",
     description: "",
     achievements: [
-      "Restructured Jun Direct's categories: 900+ products re-categorised in 2 weeks with an AI-assisted, verified product-knowledge pipeline, plus parent and sub-category navigation from the home page.",
+      "Re-categorised 900+ products in 2 weeks and added parent and sub-category navigation to Jun Direct's home page.",
       "Built storefront features in the Shopify theme, including a home-page review carousel and quick-add.",
       "Picked, packed and labelled online orders for dispatch.",
     ],
