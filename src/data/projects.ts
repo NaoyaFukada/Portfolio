@@ -6,6 +6,10 @@ interface Project {
   github?: string;
   demo?: string;
   category: string;
+  // What kind of proof the card is (shown as a tag) and its one-line result.
+  // Both are Naoya's facts: leave outcome unset until he writes it.
+  proof: string;
+  outcome?: string;
 }
 
 export const projects: Project[] = [
@@ -25,6 +29,7 @@ export const projects: Project[] = [
     github: "https://github.com/NaoyaFukada/Portfolio",
     demo: "https://naoyafukada.vercel.app/",
     category: "frontend",
+    proof: "Personal build",
   },
   {
     title: "Event Engine Microservice",
@@ -38,5 +43,6 @@ export const projects: Project[] = [
       "Scalable design",
     ],
     category: "backend",
+    proof: "Internship · Skynet Aviation",
   },
 ];

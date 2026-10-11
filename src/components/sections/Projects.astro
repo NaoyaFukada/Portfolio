@@ -9,6 +9,11 @@ const filters = [
     {label: "Frontend", value: "frontend", icon: "🎨"},
     {label: "Backend", value: "backend", icon: "⚙️"},
 ]
+
+// A filter earns its place once there are two rows of cards in more than one category.
+const showFilter = projects.length >= 6 && new Set(projects.map((p) => p.category)).size > 1;
+// Columns follow the number of cards, so two cards never leave an empty third column.
+const columns = projects.length >= 3 ? "cols-3" : "cols-2";
 ---
 
 <section id="projects" class="projects">
@@ -20,15 +25,17 @@ const filters = [
         subtitle="Building solutions with code, one project at a time" 
     />
 
-    <FilterTabs
-        filters={filters}
-        sectionColor="#10b981"
-        gradientStart="rgba(16, 185, 129, 0.15)"
-        gradientEnd="rgba(6, 182, 212, 0.15)"
-        boxShadow="rgba(16, 185, 129, 0.2)"
-    />
+    {showFilter && (
+        <FilterTabs
+            filters={filters}
+            sectionColor="#10b981"
+            gradientStart="rgba(16, 185, 129, 0.15)"
+            gradientEnd="rgba(6, 182, 212, 0.15)"
+            boxShadow="rgba(16, 185, 129, 0.2)"
+        />
+    )}
 
-    <div class="projects-container">
+    <div class={`projects-container ${columns}`}>
         {projects.map((project) => (
             <div class="project-item" data-category={project.category}>
                 <div class="project-inner">
@@ -38,6 +45,9 @@ const filters = [
                                 <i class="fa-regular fa-folder-open"></i>
                             </div>
                             <div class="project-links-top">
+                                {!project.github && !project.demo && (
+                                    <span class="no-links">No public code</span>
+                                )}
                                 {project.github && (
                                     <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                         <i class="fa-brands fa-github"></i>
@@ -50,7 +60,9 @@ const filters = [
                                 )}
                             </div>
                         </div>
+                        <span class="proof-tag">{project.proof}</span>
                         <h3 class="project-title">{project.title}</h3>
+                        {project.outcome && <p class="project-outcome">{project.outcome}</p>}
                         <p class="project-description">{project.description}</p>
 
                         <div class="tech-list">
@@ -97,7 +109,9 @@ const filters = [
 
 <script>
     import { initializeFilter } from "../../utils/filter";
-    initializeFilter("#projects", ".project-item");
+    if (document.querySelector("#projects .filter-tab")) {
+        initializeFilter("#projects", ".project-item");
+    }
 
     if ('ontouchstart' in window) {
         const items = document.querySelectorAll('.project-item');
@@ -118,7 +132,15 @@ const filters = [
 
     /* Projects Container */
     .projects-container {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+        @apply grid grid-cols-1 gap-6;
+    }
+
+    .projects-container.cols-2 {
+        @apply md:grid-cols-2;
+    }
+
+    .projects-container.cols-3 {
+        @apply md:grid-cols-2 lg:grid-cols-3;
     }
 
     .project-item {
@@ -134,8 +156,9 @@ const filters = [
         min-height: 0;
     }
 
+    /* Both faces share one grid cell, so the card is as tall as its taller face. */
     .project-inner {
-        @apply relative h-full w-full transition-transform duration-700;
+        @apply relative grid h-full w-full transition-transform duration-700;
         transform-style: preserve-3d;
     }
 
@@ -145,13 +168,15 @@ const filters = [
         }
     }
 
+    .project-item:focus-within .project-inner,
     .project-item.is-flipped .project-inner {
         transform: rotateY(180deg);
     }
 
 
     .project-front, .project-back {
-        @apply absolute w-full h-full rounded-xl p-6;
+        @apply w-full h-full rounded-xl p-6;
+        grid-area: 1 / 1;
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
@@ -178,6 +203,19 @@ const filters = [
 
     .icon-link {
         @apply text-slate-400 hover:text-emerald-400 transition-colors duration-300 text-xl;
+    }
+
+    .proof-tag {
+        @apply self-start mb-3 px-2.5 py-0.5 rounded-full text-xs font-medium text-emerald-300
+            bg-emerald-400/10 border border-emerald-400/30;
+    }
+
+    .no-links {
+        @apply text-xs text-slate-400;
+    }
+
+    .project-outcome {
+        @apply text-emerald-300 text-sm font-medium mb-2;
     }
 
     .project-title {
