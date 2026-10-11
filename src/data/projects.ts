@@ -35,7 +35,7 @@ export const projects: Project[] = [
     features: [
       "Product tabs, recipes, frequently bought together, sticky buy bar",
       "Wholesale (B2B) landing page",
-      "Clarity analytics events",
+      "Microsoft Clarity analytics events",
       "Deploy tooling that never overwrites theme-editor files",
     ],
     demo: "https://shintop.com.au",
