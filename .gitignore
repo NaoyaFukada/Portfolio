@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# iCloud: real deps live in node_modules.nosync (not synced); node_modules is a symlink
+node_modules
+*.nosync
