@@ -44,22 +44,10 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
                             <div class="folder-icon">
                                 <i class="fa-regular fa-folder-open"></i>
                             </div>
-                            <!-- Mouse shortcuts; keyboard and screen readers use the back face's buttons. -->
-                            <div class="project-links-top">
-                                {!project.github && !project.demo && (
-                                    <span class="no-links">No public code</span>
-                                )}
-                                {project.github && (
-                                    <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                                        <i class="fa-brands fa-github"></i>
-                                    </a>
-                                )}
-                                {project.demo && (
-                                    <a href={project.demo} class="icon-link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                    </a>
-                                )}
-                            </div>
+                            <!-- Names what the back face holds; the links themselves live there (hover, tap or Tab flips the card). -->
+                            <span class="links-label">
+                                {[project.github && "Code", project.demo && "Live demo"].filter(Boolean).join(" · ") || "No public code"}
+                            </span>
                         </div>
                         <span class="proof-tag">{project.proof}</span>
                         <h3 class="project-title">{project.title}</h3>
@@ -198,20 +186,14 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
         @apply text-4xl text-emerald-400;
     }
 
-    .project-links-top {
-        @apply flex gap-3;
-    }
 
-    .icon-link {
-        @apply text-slate-400 hover:text-emerald-400 transition-colors duration-300 text-xl;
-    }
 
     .proof-tag {
         @apply self-start mb-3 px-2.5 py-0.5 rounded-full text-xs font-medium text-emerald-300
             bg-emerald-400/10 border border-emerald-400/30;
     }
 
-    .no-links {
+    .links-label {
         @apply text-xs text-slate-400;
     }
 
