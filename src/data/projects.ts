@@ -14,6 +14,48 @@ interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Shinflow",
+    description:
+      "An online ordering platform for Shintop Trading, my family's wholesale food company in Japan. Restaurant buyers browse their order forms, choose quantities and place orders, replacing phone and fax ordering.",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL (Supabase)", "Tailwind"],
+    features: [
+      "Order forms for restaurant buyers",
+      "Replaces phone and fax ordering",
+      "Japanese-language UI",
+      "Supabase Auth sign-in",
+    ],
+    category: "fullstack",
+    proof: "Full-stack build · Shintop Trading",
+  },
+  {
+    title: "Shintop Trading Australia Storefront",
+    description:
+      "A custom Shopify theme for Shintop Trading Australia, built on Dawn with 36 custom sections and a product page driven by 22 custom metafields.",
+    technologies: ["Shopify", "Liquid", "JavaScript", "CSS", "Git"],
+    features: [
+      "Product tabs, recipes, frequently bought together, sticky buy bar",
+      "Wholesale (B2B) landing page",
+      "Clarity analytics events",
+      "Deploy tooling that never overwrites theme-editor files",
+    ],
+    demo: "https://shintop.com.au",
+    category: "frontend",
+    proof: "Shopify theme build · Shintop Trading Australia",
+  },
+  {
+    title: "Jun Direct Category Restructure",
+    description:
+      "Rebuilt the category structure of Jun Direct, a Japanese grocery Shopify store: 900+ products re-categorised in 2 weeks with an AI-assisted product-knowledge pipeline, every fact verified.",
+    technologies: ["Shopify", "Claude Code", "Obsidian"],
+    features: [
+      "Product knowledge from vendor sites, audited for accuracy",
+      "Products in one or more categories through tags",
+      "Parent and sub-category navigation from the home page",
+    ],
+    category: "backend",
+    proof: "eCommerce ops · Jun Pacific",
+  },
+  {
     title: "Personal Portfolio Website",
     description:
       "A modern, responsive portfolio website showcasing my projects, education, and skills. Features smooth animations, interactive UI elements, and a clean design.",
