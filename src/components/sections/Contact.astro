@@ -59,8 +59,13 @@ import {contactItems} from '../../data/contact';
         @apply max-w-7xl mx-auto px-6 my-20 md:my-40 scroll-mt-20 z-1;
     }
 
+    /* Flex, not grid: a short last row is centred instead of leaving an empty slot. */
     .contact-grid {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16;
+        @apply flex flex-wrap justify-center gap-6 mt-16;
+    }
+
+    .contact-grid > .card {
+        @apply basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)];
     }
 
     .card {

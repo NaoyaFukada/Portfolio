@@ -30,7 +30,7 @@ export const contactItems: ContactItem[] = [
   {
     icon: "fa-brands fa-linkedin",
     label: "LinkedIn",
-    value: "linkedin.com/in/naoyafukada",
+    value: "linkedin.com/in/naoya-fukada",
     href: "https://www.linkedin.com/in/naoya-fukada/",
     color: "text-blue-400",
   },
