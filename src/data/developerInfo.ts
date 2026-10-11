@@ -23,18 +23,6 @@ export const developerInfo: DeveloperField[] = [
     type: "array",
   },
   {
-    key: "softSkills",
-    value: [
-      "Attention to detail",
-      "Hardworking",
-      "Strong problem-solving skills",
-      "Reliable",
-      "Team player",
-      "Always curious to learn",
-    ],
-    type: "array",
-  },
-  {
     key: "openToWork",
     value: true,
     type: "boolean",
