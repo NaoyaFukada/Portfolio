@@ -59,7 +59,7 @@ const sortedExperiences = experiences.sort((a, b) => {
 
                     <!-- Achievements -->
                     <div class="mb-4">
-                        <h4 class="achievements-title">Key Achievements:</h4>
+                        {exp.achievements.length > 1 && <h4 class="achievements-title">Key Achievements:</h4>}
                         <ul class="achievements-list">
                             {exp.achievements.map((achievement) => (
                                 <li class="achievement-item">
