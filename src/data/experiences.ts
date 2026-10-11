@@ -9,6 +9,7 @@ interface WorkExperience {
   achievements: string[];
   skills: string[];
   type: string; // "fulltime", "parttime", "internship", "contract"
+  compact?: boolean; // one line on the timeline: a role that doesn't prove the target
 }
 
 export const experiences: WorkExperience[] = [
@@ -52,6 +53,7 @@ export const experiences: WorkExperience[] = [
       "Work Efficiency",
     ],
     type: "casual",
+    compact: true,
   },
   {
     company: "Skynet Aviation",
@@ -93,5 +95,6 @@ export const experiences: WorkExperience[] = [
       "Customer Satisfaction",
     ],
     type: "casual",
+    compact: true,
   },
 ];

@@ -1,6 +1,5 @@
 ---
 import SectionHeader from "../common/SectionHeader.astro";
-import FilterTabs from "../common/FilterTabs.astro";
 import {experiences} from '../../data/experiences';
 
 const sortedExperiences = experiences.sort((a, b) => {
@@ -10,12 +9,6 @@ const sortedExperiences = experiences.sort((a, b) => {
     if (endDateComparison !== 0) return endDateComparison;
     return b.startDate.localeCompare(a.startDate);
 });
-
-const filters = [
-    {label: "All Roles", value: "all", icon: "*"},
-    {label: "Internship", value: "internship", icon: "🎓"},
-    {label: "Casual", value: "casual", icon: "🧢"},
-]
 ---
 
 <section id="work" class="work">
@@ -27,17 +20,9 @@ const filters = [
         subtitle="My journey into software development"
     />
 
-    <FilterTabs 
-        filters={filters}
-        sectionColor="#a855f7"
-        gradientStart="rgba(168, 85, 247, 0.15)"
-        gradientEnd="rgba(192, 132, 252, 0.15)"
-        boxShadow="rgba(168, 85, 247, 0.2)"
-    />
-
     <div class="experiences">
         {sortedExperiences.map((exp, index) => (
-            <div class="experience" data-category={exp.type}>
+            <div class:list={["experience", {compact: exp.compact}]}>
                 <div class="timeline-marker">
                     <div class="timeline-dot"></div>
                     {index < sortedExperiences.length -1 && (
@@ -45,6 +30,13 @@ const filters = [
                     )}
                 </div>
 
+                {exp.compact ? (
+                <p class="compact-line">
+                    <span class="compact-title">{exp.position}</span>
+                    <span>{exp.company} · {exp.location}</span>
+                    <span class="compact-period">{exp.period}</span>
+                </p>
+                ) : (
                 <div class="content">
                     <div class="header">
                         <div class="header-top">
@@ -63,7 +55,7 @@ const filters = [
                         </div>
                     </div>
 
-                    <div class="work-description">{exp.description}</div>
+                    {exp.description && <div class="work-description">{exp.description}</div>}
 
                     <!-- Achievements -->
                     <div class="mb-4">
@@ -84,17 +76,13 @@ const filters = [
                         ))}
                     </div>
                 </div>
+                )}
             </div>
         ))}
     </div>
 
 
 </section>
-
-<script>
-    import { initializeFilter } from "../../utils/filter";
-    initializeFilter("#work", ".experience")
-</script>
 
 <style>
     @reference "tailwindcss";
@@ -111,11 +99,35 @@ const filters = [
         @apply grid grid-cols-[auto_1fr] gap-6 md:gap-8 mb-12 last:mb-0;
     }
 
-    .experience.hidden {
-        @apply opacity-0 scale-95 pointer-events-none;
-        height: 0;
-        margin: 0;
-        overflow: hidden;
+    /* An earlier role that doesn't prove the target: one line, smaller dot. */
+    .experience.compact {
+        @apply mb-8;
+    }
+
+    .experience.compact .timeline-marker {
+        @apply pt-1.5;
+    }
+
+    .experience.compact .timeline-dot {
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+    }
+
+    .experience.compact .timeline-line {
+        min-height: 24px;
+    }
+
+    .compact-line {
+        @apply flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm text-slate-400;
+    }
+
+    .compact-title {
+        @apply text-base font-semibold text-slate-200;
+    }
+
+    .compact-period {
+        @apply text-purple-300;
     }
 
     .timeline-marker {
@@ -134,11 +146,13 @@ const filters = [
         z-index: 2;
     }
 
-    .experience:hover .timeline-dot {
+    @media (hover: hover) {
+    .experience:not(.compact):hover .timeline-dot {
         box-shadow: 
             0 0 0 6px rgba(168, 85, 247, 0.3),
             0 0 30px rgba(168, 85, 247, 0.6);
         transform: scale(1.2);
+    }
     }
 
     .timeline-line {
@@ -159,12 +173,14 @@ const filters = [
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     }
 
+    @media (hover: hover) {
     .experience:hover .content {
         border-color: rgba(168, 85, 247, 0.5);
         box-shadow: 
             0 10px 30px -5px rgba(0, 0, 0, 0.3),
             0 0 20px rgba(168, 85, 247, 0.2);
         transform: translateX(8px);
+    }
     }
 
     .header {
@@ -238,9 +254,6 @@ const filters = [
             height: 16px;
         }
 
-        .experience:hover .content {
-            transform: translateX(4px);
-        }
     }
 
 </style>
