@@ -19,7 +19,7 @@ import {hero} from "../../data/hero";
         <i class="fa-solid fa-file" aria-hidden="true"></i>
         <span>{hero.cta.label}</span>
       </a>
-      <a href={hero.work.href} class="work-link">{hero.work.label}<span aria-hidden="true">&nbsp;→</span></a>
+      <a href={hero.work.href} class="work-link">{hero.work.label}<span aria-hidden="true">→</span></a>
       {hero.links.map((link) => (
         <a href={link.href} class={`social-icon ${link.tone}`} aria-label={link.label} target="_blank" rel="noopener noreferrer">
           <i class={link.icon} aria-hidden="true"></i>
@@ -205,7 +205,7 @@ import {hero} from "../../data/hero";
   }
 
   .work-link {
-    @apply inline-flex items-center h-11 px-1 font-semibold text-cyan-300 underline-offset-4
+    @apply inline-flex items-center gap-1.5 h-11 px-1 font-semibold text-cyan-300 underline-offset-4
           hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300
           focus-visible:ring-offset-2 focus-visible:ring-offset-sky-950 rounded;
   }
