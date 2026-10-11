@@ -40,7 +40,7 @@ export const projects: Project[] = [
     ],
     demo: "https://shintop.com.au",
     category: "frontend",
-    proof: "Shopify theme build · Shintop Trading Australia",
+    proof: "Shopify theme build · Shintop AU",
   },
   {
     title: "Jun Direct Category Restructure",
