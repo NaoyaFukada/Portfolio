@@ -2,6 +2,12 @@
 import "../styles/global.css";
 
 import Navbar from '../components/Navbar.astro';
+import {site} from '../data/hero';
+import profileImage from '../assets/profile.jpg';
+
+// Absolute URLs need the production domain (astro.config `site`); without it they are left out.
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const ogImage = Astro.site ? new URL(profileImage.src, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -9,10 +15,18 @@ import Navbar from '../components/Navbar.astro';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-		<meta name="theme-color" content="#0c4a6" />
+		<meta name="theme-color" content="#0c4a6e" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Naoya Fukada Portfolio</title>
+		<title>{site.title}</title>
+		<meta name="description" content={site.description} />
+		{canonical && <link rel="canonical" href={canonical} />}
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={site.title} />
+		<meta property="og:description" content={site.description} />
+		{canonical && <meta property="og:url" content={canonical} />}
+		{ogImage && <meta property="og:image" content={ogImage} />}
+		<meta name="twitter:card" content="summary" />
 	</head>
 	<body>
 		<Navbar />
