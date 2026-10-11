@@ -5,6 +5,7 @@ export const hero = {
   intro:
     "Passionate about designing and building scalable software systems, exploring Apple technology, and learning about finance and real estate.",
   cta: { label: "View my CV", href: "/CV.pdf" },
+  work: { label: "See my work", href: "#projects" },
   links: [
     { label: "GitHub", href: "https://github.com/naoyafukada", icon: "fa-brands fa-github", tone: "github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/naoya-fukada/", icon: "fa-brands fa-linkedin", tone: "linkedin" },

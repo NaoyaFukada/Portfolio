@@ -5,7 +5,7 @@ import {hero} from "../../data/hero";
 
 <section id="home" class="home">
 
-  <div class="hero-content p-3">
+  <div class="hero-content py-3">
     <h1 class="hero-title">
       <span class="block text-white">Hello</span>
       <span class="text-white">I am</span>
@@ -19,6 +19,7 @@ import {hero} from "../../data/hero";
         <i class="fa-solid fa-file" aria-hidden="true"></i>
         <span>{hero.cta.label}</span>
       </a>
+      <a href={hero.work.href} class="work-link">{hero.work.label}<span aria-hidden="true">&nbsp;→</span></a>
       {hero.links.map((link) => (
         <a href={link.href} class={`social-icon ${link.tone}`} aria-label={link.label} target="_blank" rel="noopener noreferrer">
           <i class={link.icon} aria-hidden="true"></i>
@@ -203,8 +204,14 @@ import {hero} from "../../data/hero";
           focus-visible:ring-offset-sky-950;
   }
 
+  .work-link {
+    @apply inline-flex items-center h-11 px-1 font-semibold text-cyan-300 underline-offset-4
+          hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300
+          focus-visible:ring-offset-2 focus-visible:ring-offset-sky-950 rounded;
+  }
+
   .social-icon {
-    @apply w-10 h-10 p-1.5 rounded-full border-2 transition-all duration-300
+    @apply w-11 h-11 p-2 rounded-full border-2 transition-all duration-300
           hover:scale-110 hover:shadow-lg
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 
           focus-visible:ring-offset-sky-950;
