@@ -44,17 +44,18 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
                             <div class="folder-icon">
                                 <i class="fa-regular fa-folder-open"></i>
                             </div>
+                            <!-- Mouse shortcuts; keyboard and screen readers use the back face's buttons. -->
                             <div class="project-links-top">
                                 {!project.github && !project.demo && (
                                     <span class="no-links">No public code</span>
                                 )}
                                 {project.github && (
-                                    <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                    <a href={project.github} class="icon-link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
                                         <i class="fa-brands fa-github"></i>
                                     </a>
                                 )}
                                 {project.demo && (
-                                    <a href={project.demo} class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Live Demo">
+                                    <a href={project.demo} class="icon-link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i>
                                     </a>
                                 )}
@@ -158,7 +159,7 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
 
     /* Both faces share one grid cell, so the card is as tall as its taller face. */
     .project-inner {
-        @apply relative grid h-full w-full transition-transform duration-700;
+        @apply relative grid h-full w-full transition-transform duration-700 motion-reduce:transition-none;
         transform-style: preserve-3d;
     }
 
