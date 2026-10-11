@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import profileImage from '../../assets/profile.jpg';
 import SectionHeader from '../common/SectionHeader.astro';
 import {aboutInfo} from '../../data/aboutInfo';
+import {favoriteBooks} from '../../data/books';
 ---
 
 <section id="about" class="about">
@@ -49,6 +50,13 @@ import {aboutInfo} from '../../data/aboutInfo';
               </div>
             </div>
         ))}
+        <div class="fact-item">
+          <span class="text-xl">📚</span>
+          <div>
+            <span class="fact-title">Reading:</span>
+            <span class="ml-2">{favoriteBooks.map((book) => book.title).join(" · ")}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

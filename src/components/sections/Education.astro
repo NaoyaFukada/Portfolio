@@ -2,7 +2,6 @@
 import SectionHeader from '../common/SectionHeader.astro';
 import {education} from '../../data/education';
 import {certificates} from '../../data/certificates';
-import {favoriteBooks} from '../../data/books';
 ---
 
 <section id="education" class="education">
@@ -82,25 +81,6 @@ import {favoriteBooks} from '../../data/books';
             </div>
         </div>
 
-        <!-- Books -->
-        <div class="mt-16">
-            <div class="subtitle">Favorite Books</div>
-            <p class="text-center text-slate-400 mb-8 max-w-2xl mx-auto">Books that have shaped my professional growth and understanding</p>
-            <div class="books-grid">
-                {favoriteBooks.map((book, i) => (
-                    <div class="book-card" data-index={i}>
-                        <div class="book-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="text-lg font-bold text-white leading-tight">{book.title}</h4>
-                            <p class="text-sm text-slate-400">{book.author}</p>
-                            <span class="book-category">{book.category}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
         
     </div>
 </section>
@@ -172,45 +152,4 @@ import {favoriteBooks} from '../../data/books';
         background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
         color: #fbbf24;
     }
-
-    /* Books */
-    .books-grid {
-        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
-    }
-
-    .book-card {
-        @apply rounded-xl p-6 transition-all duration-300;
-        background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
-        border: 1px solid #334155;
-    }
-
-    .book-card:hover {
-        border-color: #fbbf24;
-        box-shadow: 0 0 25px rgba(251, 191, 36, 0.15);
-        transform: translateY(-5px) scale(1.02);
-    }
-
-    .book-icon {
-        @apply w-12 h-12 rounded-lg flex items-center justify-center text-2xl mb-4;
-        background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
-        color: #fbbf24;
-    }
-
-    .book-category {
-        @apply inline-block px-3 py-1 rounded-full text-xs font-medium mt-3;
-        background: rgba(251, 191, 36, 0.1);
-        border: 1px solid rgba(251, 191, 36, 0.2);
-        color: #fbbf24;
-    }
-
-
-
-
-
-
-
-
-
-
-
 </style>

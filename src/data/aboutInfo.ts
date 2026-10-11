@@ -26,7 +26,7 @@ export const aboutInfo: AboutField[] = [
     icon: "⚙️",
   },
   {
-    key: "Location:",
+    key: "Location",
     value: "Sydney, Australia",
     icon: "📍",
   },
