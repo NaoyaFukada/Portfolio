@@ -28,19 +28,19 @@ export const projects: Project[] = [
     proof: "Full-stack build · Shintop Trading",
   },
   {
-    title: "Shintop Trading Australia Storefront",
+    title: "Shintop Trading Australia: Storefront and AI Operations",
     description:
-      "A custom Shopify theme for Shintop Trading Australia, built on Dawn with 36 custom sections and a product page driven by 22 custom metafields.",
-    technologies: ["Shopify", "Liquid", "JavaScript", "CSS", "Git"],
+      "A custom Shopify theme on Dawn (36 custom sections, a product page driven by 22 metafields), and the Claude Code system that runs the store: 57 skills and 162 Python scripts that research products, draft listings, review prices and report profit per order.",
+    technologies: ["Shopify", "Liquid", "JavaScript", "Claude Code", "Python", "Git"],
     features: [
-      "Product tabs, recipes, frequently bought together, sticky buy bar",
-      "Wholesale (B2B) landing page",
-      "Microsoft Clarity analytics events",
-      "Deploy tooling that never overwrites theme-editor files",
+      "36 custom theme sections and a wholesale (B2B) landing page",
+      "Claude Code skills take a product from research to a Shopify draft listing",
+      "Automated price reviews and a profit report for every order",
+      "Guard hooks and a deploy that never overwrites theme-editor files",
     ],
     demo: "https://shintop.com.au",
     category: "frontend",
-    proof: "Shopify theme build · Shintop AU",
+    proof: "Shopify theme + Claude Code · Shintop AU",
   },
   {
     title: "Jun Direct Category Restructure",
