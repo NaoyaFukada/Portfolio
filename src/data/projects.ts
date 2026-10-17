@@ -14,6 +14,35 @@ interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Shintop Trading Australia: Storefront and AI Operations",
+    description:
+      "A custom Shopify theme on Dawn (30+ custom Liquid sections, a product page driven by 22 metafields), and the Claude Code system that runs the store: 57 skills and 184 Python scripts that research products, draft listings, review prices and report profit per order.",
+    technologies: ["Shopify", "Liquid", "JavaScript", "Claude Code", "Python", "Git"],
+    features: [
+      "30+ custom Liquid sections and a wholesale (B2B) landing page",
+      "Claude Code skills take a product from research to a Shopify draft listing",
+      "Automated price reviews and a profit report for every order",
+      "Guard hooks and a deploy that never overwrites theme-editor files",
+    ],
+    demo: "https://shintop.com.au",
+    category: "frontend",
+    proof: "Shopify theme + Claude Code · Shintop AU",
+    outcome: "17 of 17 guides indexed by Google; 6,015 search impressions in 28 days.",
+  },
+  {
+    title: "Jun Direct: Catalogue, Navigation and Promotions",
+    description:
+      "Rebuilt the catalogue of Jun Direct, a Japanese grocery Shopify store: 900+ products re-categorised in 2 weeks into 7 categories and 55 sub-collections, using an AI-assisted product pipeline where every fact was verified. Then measured two months of 20% promotions against products never on sale. It paid off on mid-sellers and lost money on best-sellers, so the next promotion took 30 products from the band that worked.",
+    technologies: ["Shopify", "Claude Code", "Python", "Obsidian"],
+    features: [
+      "62 tag-driven automated collections",
+      "Next promotion chosen from two months of promotion sales",
+      "Parent and sub-category navigation from the home page",
+    ],
+    category: "backend",
+    proof: "eCommerce ops · Jun Pacific",
+  },
+  {
     title: "Shinflow",
     description:
       "An online ordering platform for Shintop Trading, my family's wholesale food company in Japan. Restaurant buyers browse their order forms, choose quantities and place orders, replacing phone and fax ordering.",
@@ -26,34 +55,6 @@ export const projects: Project[] = [
     ],
     category: "fullstack",
     proof: "Full-stack build · Shintop Trading",
-  },
-  {
-    title: "Shintop Trading Australia: Storefront and AI Operations",
-    description:
-      "A custom Shopify theme on Dawn (36 custom sections, a product page driven by 22 metafields), and the Claude Code system that runs the store: 57 skills and 162 Python scripts that research products, draft listings, review prices and report profit per order.",
-    technologies: ["Shopify", "Liquid", "JavaScript", "Claude Code", "Python", "Git"],
-    features: [
-      "36 custom theme sections and a wholesale (B2B) landing page",
-      "Claude Code skills take a product from research to a Shopify draft listing",
-      "Automated price reviews and a profit report for every order",
-      "Guard hooks and a deploy that never overwrites theme-editor files",
-    ],
-    demo: "https://shintop.com.au",
-    category: "frontend",
-    proof: "Shopify theme + Claude Code · Shintop AU",
-  },
-  {
-    title: "Jun Direct Category Restructure",
-    description:
-      "Rebuilt the category structure of Jun Direct, a Japanese grocery Shopify store: 900+ products re-categorised in 2 weeks with an AI-assisted product-knowledge pipeline, every fact verified.",
-    technologies: ["Shopify", "Claude Code", "Obsidian"],
-    features: [
-      "Product knowledge from vendor sites, audited for accuracy",
-      "Products in one or more categories through tags",
-      "Parent and sub-category navigation from the home page",
-    ],
-    category: "backend",
-    proof: "eCommerce ops · Jun Pacific",
   },
   {
     title: "Personal Portfolio Website",
