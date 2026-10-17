@@ -28,7 +28,7 @@ export const aboutInfo: AboutField[] = [
   {
     key: "Spoken",
     value: "Japanese (native), English",
-    icon: "🗣️",
+    icon: "💬",
   },
   {
     key: "Location",
