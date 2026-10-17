@@ -13,12 +13,9 @@ export const developerInfo: DeveloperField[] = [
   {
     key: "passion",
     value: [
-      "Software Development",
-      "Cloud Computing",
-      "Data Management",
-      "Finance",
-      "Marketing",
-      "Real Estate",
+      "eCommerce",
+      "Data",
+      "AI tools",
     ],
     type: "array",
   },
