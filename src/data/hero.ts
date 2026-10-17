@@ -1,8 +1,13 @@
 // Hero copy and the page's meta description.
 export const hero = {
   role: "Shopify eCommerce Specialist",
-  intro:
-    "At Jun Pacific I work on Jun Direct's Shopify store: the catalogue, navigation, theme and promotions. I also design Claude Code systems that automate eCommerce work. For Shintop Trading Australia, mine researches products and competitor prices, writes each product page for the customer it targets and optimises it for search, all from about a minute of my own time per product. It also reports profit on every order. Japanese and English.",
+  intro: "I build Shopify themes, and the AI systems that take over the admin. Japanese and English.",
+  // Proof figures under the intro: each is a row in Projects/Job-Search/evidence.md.
+  stats: [
+    { value: "30+", label: "custom theme sections I built" },
+    { value: "~1 min", label: "of my time per SEO-ready product page" },
+    { value: "900+", label: "products re-categorised in 2 weeks" },
+  ],
   cta: { label: "View my CV", href: "/CV.pdf" },
   work: { label: "See my work", href: "#projects" },
   links: [

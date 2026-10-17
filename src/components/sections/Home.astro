@@ -14,6 +14,14 @@ import {hero} from "../../data/hero";
       <span class="role-highlight">{hero.role}.</span>
     </h1>
     <p class="hero-text pt-5 pb-3">{hero.intro}</p>
+    <dl class="hero-stats">
+      {hero.stats.map((stat) => (
+        <div class="stat">
+          <dt class="stat-value">{stat.value}</dt>
+          <dd class="stat-label">{stat.label}</dd>
+        </div>
+      ))}
+    </dl>
     <div class="hero-actions py-3">
       <a href={hero.cta.href} class="cta" target="_blank" rel="noopener noreferrer">
         <i class="fa-solid fa-file" aria-hidden="true"></i>
@@ -190,6 +198,22 @@ import {hero} from "../../data/hero";
 
   .hero-text {
     @apply text-lg md:text-xl text-slate-300 leading-relaxed;
+  }
+
+  .hero-stats {
+    @apply grid grid-cols-3 gap-4 py-4;
+  }
+
+  .stat {
+    @apply flex flex-col gap-1 border-l-2 border-emerald-400/50 pl-3;
+  }
+
+  .stat-value {
+    @apply text-2xl lg:text-3xl font-bold leading-none bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .stat-label {
+    @apply text-sm text-slate-300 leading-snug;
   }
 
   .hero-actions {
