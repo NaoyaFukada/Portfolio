@@ -1,6 +1,13 @@
 ---
 import SectionHeader from '../common/SectionHeader.astro';
 import {contactItems} from '../../data/contact';
+
+// A value may wrap after a URL's last '/' or before an email's '@', never inside a name.
+const splitValue = (value: string) => {
+    const at = value.indexOf('@');
+    const i = at !== -1 ? at : value.lastIndexOf('/') + 1;
+    return i <= 0 ? [value, ''] : [value.slice(0, i), value.slice(i)];
+};
 ---
 
 <section id="contact" class="contact">
@@ -30,7 +37,7 @@ import {contactItems} from '../../data/contact';
                                 target={item.href.startsWith('http') || item.href.startsWith('/') ? '_blank' : undefined}
                                 rel={item.href.startsWith('http') || item.href.startsWith('/') ? 'noopener noreferrer' : undefined}
                             >
-                                {item.value}
+                                {splitValue(item.value)[0]}{splitValue(item.value)[1] && <><wbr /><span class="whitespace-nowrap">{splitValue(item.value)[1]}</span></>}
                             </a>
                         ) : (
                             <span class="contact-value">{item.value}</span>
@@ -92,7 +99,7 @@ import {contactItems} from '../../data/contact';
     }
 
     .contact-value {
-        @apply text-slate-200 font-medium break-all transition-colors duration-300;
+        @apply text-slate-200 font-medium wrap-anywhere transition-colors duration-300;
     }
 
     a.contact-value:hover {
