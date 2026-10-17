@@ -37,16 +37,21 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
 
     <div class={`projects-container ${columns}`}>
         {projects.map((project) => (
-            <div class="project-item" data-category={project.category}>
+            <!-- A card with no links has nothing focusable on its back, so the card itself takes Tab focus to flip. -->
+            <div class="project-item" data-category={project.category} tabindex={project.github || project.demo ? undefined : 0} role={project.github || project.demo ? undefined : "group"} aria-label={project.github || project.demo ? undefined : `${project.title}: project details`}>
                 <div class="project-inner">
                     <div class="project-front">
                         <div class="front-header">
                             <div class="folder-icon">
                                 <i class="fa-regular fa-folder-open"></i>
                             </div>
-                            <!-- Names what the back face holds; the links themselves live there (hover, tap or Tab flips the card). -->
+                            <!-- Names what the back face holds; the links themselves live there. The cue says how to get there (hover, tap or Tab flips the card). -->
                             <span class="links-label">
                                 {[project.github && "Code", project.demo && "Live demo"].filter(Boolean).join(" · ") || "No public code"}
+                                <span class="flip-cue" aria-hidden="true">
+                                    <i class="fa-solid fa-rotate"></i>
+                                    <span class="cue-touch">Tap to flip</span><span class="cue-hover">Hover to flip</span>
+                                </span>
                             </span>
                         </div>
                         <span class="proof-tag">{project.proof}</span>
@@ -199,7 +204,24 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
     }
 
     .links-label {
-        @apply text-xs text-slate-400;
+        @apply flex flex-wrap items-center justify-end gap-x-2 text-xs text-slate-400;
+    }
+
+    .flip-cue {
+        @apply inline-flex items-center gap-1 text-emerald-300 font-medium;
+    }
+
+    .cue-hover {
+        @apply hidden;
+    }
+
+    @media (hover: hover) {
+        .cue-touch { @apply hidden; }
+        .cue-hover { @apply inline; }
+    }
+
+    .project-item:focus-visible {
+        @apply outline-2 outline-offset-4 outline-emerald-400 rounded-xl;
     }
 
     .project-outcome {
