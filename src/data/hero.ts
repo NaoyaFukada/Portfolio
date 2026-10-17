@@ -2,7 +2,7 @@
 export const hero = {
   role: "Shopify eCommerce Specialist",
   intro:
-    "At Jun Pacific I work on Jun Direct's Shopify store: the catalogue, navigation, theme and promotions. I also built and run the Shopify store for Shintop Trading Australia, with a Claude Code system I wrote that drafts listings, reviews prices and reports profit on every order. Japanese and English.",
+    "At Jun Pacific I work on Jun Direct's Shopify store: the catalogue, navigation, theme and promotions. I also design Claude Code systems that automate eCommerce work. For Shintop Trading Australia, mine researches products and competitor prices, writes each product page for the customer it targets and optimises it for search, all from about a minute of my own time per product. It also reports profit on every order. Japanese and English.",
   cta: { label: "View my CV", href: "/CV.pdf" },
   work: { label: "See my work", href: "#projects" },
   links: [

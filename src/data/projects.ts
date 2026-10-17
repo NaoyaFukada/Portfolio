@@ -20,6 +20,7 @@ export const projects: Project[] = [
     technologies: ["Shopify", "Liquid", "JavaScript", "Claude Code", "Python", "Git"],
     features: [
       "30+ custom Liquid sections and a wholesale (B2B) landing page",
+      "A full product page from about a minute of my time",
       "Claude Code skills take a product from research to a Shopify draft listing",
       "Automated price reviews and a profit report for every order",
       "Guard hooks and a deploy that never overwrites theme-editor files",
