@@ -12,18 +12,23 @@ export const aboutInfo: AboutField[] = [
   },
   {
     key: "Interests",
-    value: "Software Systems, Cloud, DevOps, Business, Finance",
+    value: "eCommerce, data, AI tools",
     icon: "💡",
   },
   {
     key: "Languages",
-    value: "Python, PHP, Java, TypeScript",
+    value: "Python, TypeScript, PHP, Liquid",
     icon: "💻",
   },
   {
     key: "Frameworks",
-    value: "React, Laravel, Node.js, Angular, Ionic",
+    value: "Shopify (Liquid), React, Next.js, Node.js, Laravel",
     icon: "⚙️",
+  },
+  {
+    key: "Spoken",
+    value: "Japanese (native), English",
+    icon: "🗣️",
   },
   {
     key: "Location",
