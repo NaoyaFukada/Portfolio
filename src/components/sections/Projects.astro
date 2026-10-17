@@ -207,8 +207,10 @@ const columns = projects.length >= 3 ? "cols-3" : "cols-2";
         @apply flex flex-wrap items-center justify-end gap-x-2 text-xs text-slate-400;
     }
 
+    /* Outlined and white, so it reads as a control and not as another green tag. */
     .flip-cue {
-        @apply inline-flex items-center gap-1 text-emerald-300 font-medium;
+        @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-slate-400/60
+            text-slate-100 font-medium;
     }
 
     .cue-hover {
