@@ -1,7 +1,7 @@
 // Hero copy and the page's meta description.
 export const hero = {
   role: "Shopify eCommerce Specialist",
-  intro: "I build Shopify themes, and the AI systems that take over the admin. Japanese and English.",
+  intro: "I build Shopify themes, and the AI systems that take over the admin. Native Japanese, fluent English.",
   // Proof figures under the intro: each is a row in Projects/Job-Search/evidence.md.
   stats: [
     { value: "30+", label: "custom theme sections I built" },
