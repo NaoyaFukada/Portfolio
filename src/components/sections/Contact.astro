@@ -48,15 +48,6 @@ const splitValue = (value: string) => {
         ))}
     </div>
 
-    <div class="cta-section">
-        <p class="text-xl text-slate-300">
-            Let's work together to create something amazing!
-        </p>
-        <a href="mailto:naoyafukada@icloud.com" class="cta-button">
-            <i class="fa-solid fa-paper-plane"></i>
-            Send Message
-        </a>
-    </div>
 </section>
 
 <style>
@@ -104,33 +95,5 @@ const splitValue = (value: string) => {
 
     a.contact-value:hover {
         @apply underline;
-    }
-
-    .cta-section {
-        @apply mt-16 text-center space-y-6;
-    }
-
-    .cta-button {
-        @apply inline-flex items-center gap-3 px-8 py-4 rounded-lg font-semibold text-lg
-            transition-all duration-300 border-2
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-        border-color: rgba(99, 102, 241, 0.3);
-        color: #a5b4fc;
-    }
-
-    .cta-button:hover {
-        @apply -translate-y-1;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
-        border-color: #818cf8;
-        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-    }
-
-    .cta-button i {
-        @apply transition-transform duration-300;
-    }
-
-    .cta-button:hover i {
-        @apply translate-x-1;
     }
 </style>
