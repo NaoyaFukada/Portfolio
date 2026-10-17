@@ -16,7 +16,7 @@ const { mainText, highlightText, highlightClass, underlineClass, subtitle } = As
         {mainText} <span class={highlightClass}>{highlightText}</span>
     </h2>
     <div class={`underline ${underlineClass}`}></div>
-    <p class="subtitle">{subtitle}</p>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
 </div>
 
 <style>
