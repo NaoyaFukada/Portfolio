@@ -1,8 +1,8 @@
 // Hero copy and the page's meta description.
 export const hero = {
-  role: "eCommerce Developer",
+  role: "Shopify eCommerce Specialist",
   intro:
-    "I run two Shopify stores at Jun Pacific and built the Shopify storefront for Shintop Trading Australia. I also build Shinflow, an online ordering platform for my family's wholesale food business in Japan. Bilingual in Japanese and English.",
+    "At Jun Pacific I work on Jun Direct's Shopify store: the catalogue, navigation, theme and promotions. I also built and run the Shopify store for Shintop Trading Australia, with a Claude Code system I wrote that drafts listings, reviews prices and reports profit on every order. Japanese and English.",
   cta: { label: "View my CV", href: "/CV.pdf" },
   work: { label: "See my work", href: "#projects" },
   links: [
@@ -14,5 +14,5 @@ export const hero = {
 export const site = {
   title: "Naoya Fukada Portfolio",
   description:
-    "Naoya Fukada, an eCommerce developer in Sydney: two Shopify stores, a Shopify theme build and Shinflow, a full-stack ordering platform. Projects, work, CV.",
+    "Naoya Fukada, Shopify eCommerce specialist in Sydney: Jun Direct's catalogue and theme, and a Shopify store run with a Claude Code system he wrote.",
 };
