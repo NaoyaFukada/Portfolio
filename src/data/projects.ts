@@ -31,17 +31,18 @@ export const projects: Project[] = [
     outcome: "17 of 17 guides indexed by Google; 6,015 search impressions in 28 days.",
   },
   {
-    title: "Jun Direct: Catalogue, Navigation and Promotions",
+    title: "Jun Direct: Storefront Rebuild and Bundles",
     description:
-      "Rebuilt the catalogue of Jun Direct, a Japanese grocery Shopify store: 900+ products re-categorised in 2 weeks into 7 categories and 55 sub-collections, using an AI-assisted product pipeline where every fact was verified. Then measured two months of 20% promotions against products never on sale. It paid off on mid-sellers and lost money on best-sellers, so the next promotion took 30 products from the band that worked.",
-    technologies: ["Shopify", "Claude Code", "Python", "Obsidian"],
+      "Rebuilt the Shopify storefront of Jun Direct, a Japanese grocery store, and redesigned its catalogue into clear categories. Then introduced multi-buy bundles to raise order value.",
+    technologies: ["Shopify", "Liquid", "Shopify Flow", "Claude Code"],
     features: [
-      "62 tag-driven automated collections",
-      "Next promotion chosen from two months of promotion sales",
-      "Parent and sub-category navigation from the home page",
+      "Theme rebuilt on Warehouse 7, live June 2026",
+      "900+ products re-categorised in 2 weeks",
+      "Restock and new-arrival tagging automated",
     ],
     category: "backend",
     proof: "eCommerce ops · Jun Pacific",
+    outcome: "Orders with a bundle are worth about 1.5× the rest.",
   },
   {
     title: "Shinflow",
