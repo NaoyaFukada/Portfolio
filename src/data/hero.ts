@@ -4,9 +4,9 @@ export const hero = {
   intro: "I build Shopify themes, and the AI systems that take over the admin. Native Japanese, fluent English.",
   // Proof figures under the intro: each is a row in Projects/Job-Search/evidence.md.
   stats: [
-    { value: "30+", label: "custom theme sections I built" },
-    { value: "~1 min", label: "of my time per SEO-ready product page" },
-    { value: "900+", label: "products re-categorised in 2 weeks" },
+    { value: "1.5×", label: "order value with my bundles" },
+    { value: "~1 min", label: "per product page, written by my AI system" },
+    { value: "2", label: "Shopify stores built or rebuilt" },
   ],
   cta: { label: "View my CV", href: "/CV.pdf" },
   work: { label: "See my work", href: "#projects" },
