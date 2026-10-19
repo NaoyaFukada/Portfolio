@@ -92,17 +92,11 @@ import {hero} from "../../data/hero";
                     <span class="json-bracket">[</span>
                 </div>
               ),
-              (
+              ...arrayValue.map((item, itemIndex) => (
                 <div class="json-line indent-2">
-                    {arrayValue.map((item, itemIndex) => (
-                        <>
-                        <span class="json-string">"{item}"</span>{!(itemIndex === arrayValue.length -1) && (
-                            <span class="json-comma">,</span>
-                        )} 
-                        </>
-                    ))}
+                  <span class="json-string">"{item}"</span>{itemIndex !== arrayValue.length - 1 && <span class="json-comma">,</span>}
                 </div>
-              ),
+              )),
               (
                 <div class="json-line indent-1">
                   <span class="json-bracket">]</span>{!isLast && <span class="json-comma">,</span>}

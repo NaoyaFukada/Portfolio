@@ -13,9 +13,10 @@ export const developerInfo: DeveloperField[] = [
   {
     key: "passion",
     value: [
-      "eCommerce",
-      "Data",
-      "AI tools",
+      "eCommerce marketing",
+      "UX and UI that lift conversion and order value",
+      "AI automation for store admin",
+      "Lean, accurate AI systems",
     ],
     type: "array",
   },

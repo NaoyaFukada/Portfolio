@@ -6,7 +6,7 @@ export const hero = {
   stats: [
     { value: "1.5×", label: "order value with my bundles" },
     { value: "~1 min", label: "per product page, written by my AI system" },
-    { value: "2", label: "Shopify stores built or rebuilt" },
+    { value: "3", label: "Shopify stores built or rebuilt" },
   ],
   cta: { label: "View my CV", href: "/CV.pdf" },
   work: { label: "See my work", href: "#projects" },
