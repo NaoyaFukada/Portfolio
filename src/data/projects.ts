@@ -31,14 +31,15 @@ export const projects: Project[] = [
     outcome: "17 of 17 guides indexed by Google; 6,015 search impressions in 28 days.",
   },
   {
-    title: "Jun Direct: Storefront Rebuild and Bundles",
+    title: "Jun Direct: Storefront, Bundles and Automation",
     description:
-      "Rebuilt the Shopify storefront of Jun Direct, a Japanese grocery store, and redesigned its categories around how shoppers look for food, so the store is easy to browse. Then introduced multi-buy bundles to raise average order value.",
+      "Rebuilt the Shopify storefront of Jun Direct, a Japanese grocery store, and redesigned its categories around how shoppers look for food. Introduced multi-buy bundles to raise average order value, and automated the admin behind the store: product pages, bundles, restock tracking and order checks.",
     technologies: ["Shopify", "Liquid", "Shopify Flow", "Claude Code"],
     features: [
       "Theme rebuilt on Warehouse 7, live June 2026",
       "900+ products re-categorised in 2 weeks",
-      "Restock and new-arrival tagging automated",
+      "Claude Code system for product pages, bundles and SEO",
+      "Restock, new-arrival and order-picking checks automated",
     ],
     category: "backend",
     proof: "eCommerce ops · Jun Pacific",
