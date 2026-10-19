@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     title: "Jun Direct: Storefront Rebuild and Bundles",
     description:
-      "Rebuilt the Shopify storefront of Jun Direct, a Japanese grocery store, and redesigned its catalogue into clear categories. Then introduced multi-buy bundles to raise order value.",
+      "Rebuilt the Shopify storefront of Jun Direct, a Japanese grocery store, and redesigned its categories around how shoppers look for food, so the store is easy to browse. Then introduced multi-buy bundles to raise average order value.",
     technologies: ["Shopify", "Liquid", "Shopify Flow", "Claude Code"],
     features: [
       "Theme rebuilt on Warehouse 7, live June 2026",
