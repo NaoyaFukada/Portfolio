@@ -4,7 +4,7 @@ export const hero = {
   intro: "I build Shopify themes, and the AI systems that take over the admin. Native Japanese, fluent English.",
   // Proof figures under the intro: each is a row in Projects/Job-Search/evidence.md.
   stats: [
-    { value: "1.5×", label: "order value with my bundles" },
+    { value: "1.5×", label: "order value with bundles I designed" },
     { value: "~1 min", label: "per product page, written by my AI system" },
     { value: "3", label: "Shopify stores built or rebuilt" },
   ],
