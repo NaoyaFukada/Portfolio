@@ -22,10 +22,10 @@ export const experiences: WorkExperience[] = [
     location: "Chatswood, Sydney, NSW, Australia",
     description: "",
     achievements: [
-      "Upgraded Jun Direct's Shopify theme from Warehouse 3.0.1 to 7.0.1 (live June 2026) and built four custom sections.",
-      "Re-categorised 900+ products in 2 weeks into 7 categories and 55 tag-driven sub-collections.",
-      "Measured two months of 20% promotions against never-promoted products, then chose the next promotion's 30 products from the sales band where it paid off.",
-      "Built a tool that turns orders into picking sheets and checks the ERP picking sheet (it found 12 missing lines in one 42‑order batch).",
+      "Rebuilt the Shopify storefronts of Jun Direct and Sake Online, and redesigned Jun Direct's categories around how shoppers look for food.",
+      "Created multi-buy bundles to raise order value: orders with a bundle are worth about 1.5× the rest.",
+      "Automated store admin with AI and Shopify Flow: product pages, restock tracking and order checks.",
+      "Used sales data to choose which products go on promotion.",
       "Picked, packed and labelled online orders for dispatch.",
     ],
     skills: [
